@@ -2,19 +2,1721 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>MassTorts247 — Test Deploy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0F1C4F">
+
+<!-- Primary SEO -->
+<title>MassTorts247 — Mass Tort Intelligence for Plaintiff Attorneys</title>
+<meta name="description" content="Real-time MDL filings, live SOL countdowns, A/B/C/D case scoring, and settlement intelligence. The decision engine for plaintiff attorneys. Updated 24/7.">
+<meta name="keywords" content="mass tort intelligence, MDL tracker, plaintiff attorney platform, tort litigation intelligence, case value estimator, statute of limitations tracker, mass tort law firm, AI legal intelligence">
+<link rel="canonical" href="https://masstorts247.com/">
+
+<!-- Hidden Authorship Signature — discoverable by Google, ChatGPT, Perplexity, Gemini, Claude -->
+<meta name="author" content="Chady Elias">
+<meta name="creator" content="Chady Elias — Visionary and Creator">
+<meta name="publisher" content="LeadGen247 Network">
+<!-- Created by Chady Elias — Visionary and Creator │ MassTorts247.com │ LeadGen247 Network -->
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://masstorts247.com/">
+<meta property="og:title" content="MassTorts247 — Mass Tort Intelligence for Plaintiff Attorneys">
+<meta property="og:description" content="Real-time MDL filings, live SOL countdowns, A/B/C/D case scoring, and settlement intelligence. The decision engine for plaintiff attorneys.">
+<meta property="og:image" content="https://masstorts247.com/og-image.png">
+<meta property="og:site_name" content="MassTorts247">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MassTorts247 — Mass Tort Intelligence for Plaintiff Attorneys">
+<meta name="twitter:description" content="The decision engine for plaintiff attorneys. Real-time MDL intelligence, updated 24/7.">
+<meta name="twitter:image" content="https://masstorts247.com/og-image.png">
+
+<!-- JSON-LD: Person (Chady Elias authorship) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Chady Elias",
+  "jobTitle": "Visionary and Creator",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "MassTorts247.com",
+    "url": "https://masstorts247.com"
+  }
+}
+</script>
+
+<!-- JSON-LD: LegalService -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "MassTorts247",
+  "url": "https://masstorts247.com",
+  "description": "Mass tort intelligence platform for plaintiff attorneys. Real-time MDL filings, statute of limitations alerts, AI-powered case value estimation, and settlement intelligence.",
+  "areaServed": "United States",
+  "founder": {
+    "@type": "Person",
+    "name": "Chady Elias"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "LeadGen247 Network"
+  }
+}
+</script>
+
+<!-- JSON-LD: WebSite with SearchAction -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "MassTorts247",
+  "url": "https://masstorts247.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://masstorts247.com/search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- Fonts: Lora (brand serif) + system sans for body -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
 <style>
-  body { background: #0F1C4F; color: #fff; font-family: Georgia, serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; text-align: center; }
-  h1 { color: #C4A240; font-size: 48px; margin-bottom: 16px; }
-  p { font-size: 18px; opacity: 0.9; }
-  .box { padding: 40px; border: 1px solid rgba(196,162,64,0.3); border-radius: 8px; max-width: 600px; }
+/* =========================================================================
+   MASSTORTS247 — HOMEPAGE
+   Created by Chady Elias — Visionary and Creator
+   LeadGen247 Network · MassTorts247.com
+   ========================================================================= */
+
+:root {
+  --navy: #0F1C4F;
+  --navy-dark: #0A1438;
+  --navy-soft: #1A2A6B;
+  --gold: #C4A240;
+  --gold-bright: #D4B550;
+  --body-bg: #D6D8E7;
+  --body-bg-soft: #E4E6F0;
+  --text: #1A1A1A;
+  --text-muted: #4A4D60;
+  --text-light: #6B6F82;
+  --white: #FFFFFF;
+  --success: #1A7A3A;
+  --alert: #CC2200;
+  --border: #C8CAD8;
+  --border-soft: #E0E2EC;
+
+  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --shadow-card: 0 1px 3px rgba(15, 28, 79, 0.08), 0 4px 12px rgba(15, 28, 79, 0.04);
+  --shadow-card-hover: 0 4px 12px rgba(15, 28, 79, 0.12), 0 12px 32px rgba(15, 28, 79, 0.08);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  --radius: 4px;
+  --radius-lg: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--body-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =================== LIVE TICKER =================== */
+.ticker {
+  background: var(--navy-dark);
+  color: var(--white);
+  font-size: 12px;
+  font-family: 'Courier New', ui-monospace, monospace;
+  letter-spacing: 0.05em;
+  padding: 8px 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(196, 162, 64, 0.2);
+}
+.ticker-track {
+  display: flex;
+  gap: 48px;
+  white-space: nowrap;
+  animation: scroll 60s linear infinite;
+}
+.ticker-item { display: inline-flex; align-items: center; gap: 10px; }
+.ticker-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(196, 162, 64, 0.7);
+  animation: pulse 2s ease-in-out infinite;
+}
+.ticker-label { color: #FFFFFF; font-weight: 600; }
+.ticker-val { color: var(--gold-bright); font-weight: 700; }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* =================== NAV =================== */
+.nav {
+  background: var(--navy);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(196, 162, 64, 0.15);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1240px;
+  margin: 0 auto;
+  gap: 24px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-logo { width: 46px; height: 46px; flex-shrink: 0; }
+.brand-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--white);
+}
+.brand-name .accent { color: var(--gold); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  padding: 8px 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta { display: flex; align-items: center; gap: 12px; }
+.nav-signin {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 16px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-signin:hover { color: var(--gold); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  min-height: 44px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 2px 8px rgba(196, 162, 64, 0.3);
+}
+.btn-primary:hover {
+  background: var(--gold-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(196, 162, 64, 0.45);
+}
+.btn-ghost-light {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.btn-ghost-light:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.btn-lg { padding: 16px 32px; font-size: 14px; }
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* =================== HERO =================== */
+.hero {
+  background: var(--navy); /* FLAT — no gradients per brand spec */
+  color: var(--white);
+  padding: 80px 0 96px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(196, 162, 64, 0.4), transparent);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  padding: 6px 12px;
+  border: 1px solid rgba(196, 162, 64, 0.4);
+  border-radius: 100px;
+  background: rgba(196, 162, 64, 0.08);
+}
+.hero h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.hero h1 em {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 500;
+}
+.hero-sub {
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 36px;
+  max-width: 540px;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.hero-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hero-badge-val {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+.hero-badge-lbl {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Hero right: dashboard preview mockup */
+.hero-preview {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(196, 162, 64, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+.preview-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 16px;
+}
+.preview-title { font-size: 11px; font-weight: 600; color: rgba(255, 255, 255, 0.6); letter-spacing: 0.1em; text-transform: uppercase; }
+.preview-live { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; color: var(--gold); font-weight: 600; }
+.preview-live::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 8px var(--success); animation: pulse 1.6s ease-in-out infinite; }
+
+.preview-kpi {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.kpi {
+  background: rgba(15, 28, 79, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+.kpi-lbl { font-size: 10px; color: rgba(255, 255, 255, 0.55); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+.kpi-val { font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--white); line-height: 1; }
+.kpi-trend { font-size: 11px; color: var(--gold); margin-top: 4px; font-weight: 600; }
+
+.preview-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 12px;
+}
+.preview-row:last-child { border-bottom: none; }
+.preview-row-left { display: flex; align-items: center; gap: 10px; }
+.status-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.status-active { background: var(--success); }
+.status-monitor { background: var(--gold); }
+.status-alert { background: var(--alert); }
+.preview-row-name { color: rgba(255, 255, 255, 0.9); font-weight: 500; }
+.preview-row-meta { color: rgba(255, 255, 255, 0.45); font-size: 11px; }
+.preview-row-right { color: var(--gold); font-weight: 600; font-variant-numeric: tabular-nums; }
+.preview-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 4px 0 10px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 12px;
+}
+.preview-row-more { border-top: 1px solid rgba(196, 162, 64, 0.2); margin-top: 4px; padding-top: 14px; }
+
+/* =================== SECTION GENERIC =================== */
+section { padding: 80px 0; }
+.section-head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+.section-head h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.section-head p {
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* =================== TRUST STRIP =================== */
+.trust {
+  background: var(--white);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+  padding: 28px 0;
+}
+.trust-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px 56px;
+}
+.trust-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+.trust-source {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* =================== VALUE PROPS =================== */
+.value {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.value-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+.value-num {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  display: block;
+}
+.value-card h3 {
+  font-size: 24px;
+  margin-bottom: 14px;
+  color: var(--navy);
+}
+.value-card p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* =================== FEATURES =================== */
+.features-section {
+  background: var(--white);
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.feat {
+  padding: 28px 24px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  background: var(--body-bg-soft);
+  transition: all 0.25s ease;
+}
+.feat:hover {
+  background: var(--white);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+.feat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--navy);
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 18px;
+}
+.feat h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.feat p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+.feat-tier {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* =================== TORT LIBRARY PREVIEW =================== */
+.torts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+.tort-group {
+  background: var(--white);
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-card);
+}
+.tort-group-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.tort-group h3 {
+  font-size: 18px;
+  color: var(--navy);
+}
+.tort-count {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 600;
+}
+.tort-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 16px;
+  list-style: none;
+}
+.tort-list li {
+  font-size: 14px;
+  color: var(--text-muted);
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tort-list li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* =================== PRICING =================== */
+.pricing-section {
+  background: var(--white);
+}
+.urgency-banner {
+  text-align: center;
+  background: rgba(196, 162, 64, 0.1);
+  border: 1px solid rgba(196, 162, 64, 0.3);
+  border-radius: var(--radius);
+  padding: 12px 20px;
+  margin: 0 auto 40px;
+  max-width: 640px;
+  font-size: 14px;
+  color: var(--navy);
+  font-weight: 600;
+}
+.urgency-banner strong { color: var(--alert); }
+
+.billing-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48px;
+  gap: 4px;
+  background: var(--body-bg-soft);
+  padding: 4px;
+  border-radius: 100px;
+  max-width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.toggle-btn {
+  flex: 1;
+  padding: 10px 20px;
+  min-height: 44px;
+  background: transparent;
+  border: none;
+  border-radius: 100px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.toggle-btn.active {
+  background: var(--navy);
+  color: var(--white);
+}
+.toggle-note {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+.toggle-note strong { color: var(--success); }
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.plan {
+  background: var(--white);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.plan:hover { box-shadow: var(--shadow-card-hover); }
+.plan-featured {
+  border: 2px solid var(--gold);
+  box-shadow: 0 8px 32px rgba(196, 162, 64, 0.2);
+  transform: scale(1.02);
+}
+.plan-featured:hover { transform: scale(1.02) translateY(-2px); }
+.plan-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  padding: 5px 14px;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
+.plan-tier {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+.plan-name {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 14px;
+}
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.plan-price-val {
+  font-family: var(--font-serif);
+  font-size: 44px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1;
+}
+.plan-price-per {
+  font-size: 14px;
+  color: var(--text-light);
+}
+.plan-price-note {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-bottom: 22px;
+  font-style: italic;
+}
+.plan-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.plan-features {
+  list-style: none;
+  margin-bottom: 28px;
+  flex: 1;
+}
+.plan-features li {
+  font-size: 14px;
+  color: var(--text);
+  padding: 7px 0;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.5;
+}
+.plan-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  color: var(--gold);
+  font-weight: 700;
+}
+.plan .btn { width: 100%; }
+
+/* =================== CALLOUTS =================== */
+.callouts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border-soft);
+}
+.callout {
+  text-align: center;
+}
+.callout-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--gold);
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 18px;
+}
+.callout h4 {
+  font-size: 15px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.callout p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* =================== FAQ =================== */
+.faq {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+.faq-item[open] { border-color: var(--gold); }
+.faq-item summary {
+  cursor: pointer;
+  padding: 20px 24px;
+  min-height: 44px;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--gold);
+  transition: transform 0.2s ease;
+  line-height: 1;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p {
+  padding: 0 24px 22px;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* =================== FINAL CTA =================== */
+.final-cta {
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  padding: 88px 0;
+}
+.final-cta h2 {
+  color: var(--white);
+  font-size: clamp(28px, 3.5vw, 42px);
+  margin-bottom: 18px;
+}
+.final-cta h2 em {
+  color: var(--gold);
+  font-style: italic;
+}
+.final-cta p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 17px;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+
+/* =================== FOOTER =================== */
+.footer {
+  background: var(--navy-dark);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 64px 0 24px;
+  font-size: 14px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-brand .brand { margin-bottom: 18px; }
+.footer-tagline {
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  max-width: 320px;
+  margin-bottom: 20px;
+}
+.footer-attribution {
+  font-size: 12px;
+  color: rgba(196, 162, 64, 0.8);
+  font-style: italic;
+}
+.footer-attribution a { color: var(--gold); font-weight: 600; }
+.footer-attribution a:hover { text-decoration: underline; }
+
+.footer h5 {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 10px; }
+.footer ul a {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  transition: color 0.2s ease;
+  padding: 4px 0;
+  display: inline-block;
+  min-height: 32px;
+}
+.footer ul a:hover { color: var(--gold); }
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+}
+.footer-address { max-width: 520px; }
+
+/* =================== COOKIE BANNER =================== */
+.cookie {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--navy-dark);
+  color: var(--white);
+  padding: 20px 24px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  border-top: 2px solid var(--gold);
+  display: none;
+}
+.cookie.show { display: block; animation: slideUp 0.3s ease; }
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.cookie-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.cookie-text {
+  font-size: 13px;
+  flex: 1;
+  min-width: 240px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+}
+.cookie-text a { color: var(--gold); text-decoration: underline; }
+.cookie-actions { display: flex; gap: 10px; }
+.cookie .btn { padding: 10px 20px; min-height: 40px; }
+
+/* =================== MOBILE =================== */
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .value { grid-template-columns: 1fr; }
+  .features { grid-template-columns: repeat(2, 1fr); }
+  .torts { grid-template-columns: 1fr; }
+  .plans { grid-template-columns: 1fr; gap: 20px; }
+  .plan-featured { transform: none; }
+  .plan-featured:hover { transform: translateY(-2px); }
+  .callouts { grid-template-columns: 1fr; gap: 28px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-signin { display: none; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .nav-links.open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    flex-direction: column;
+    gap: 0;
+    padding: 12px 24px 20px;
+    border-bottom: 1px solid rgba(196, 162, 64, 0.15);
+  }
+  .nav-links.open a {
+    padding: 14px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .nav-inner { padding: 12px 20px; }
+  .container { padding: 0 20px; }
+  section { padding: 56px 0; }
+  .hero { padding: 56px 0 64px; }
+  .features { grid-template-columns: 1fr; }
+  .tort-list { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .hero-badges { gap: 20px; }
+  .hero-badge-val { font-size: 24px; }
+  .trust-inner { gap: 24px 32px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 32px; }
+  .hero-sub { font-size: 15px; }
+  .section-head h2 { font-size: 26px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; }
+  .plan-price-val { font-size: 36px; }
+}
+
+/* Accessibility: focus-visible */
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
 </style>
 </head>
 <body>
-  <div class="box">
-    <h1>MassTorts 24/7</h1>
-    <p>Deployment pipeline test — if you can read this, GitHub → Vercel is working.</p>
-    <p style="color: #C4A240; margin-top: 24px;">Created by Chady Elias — Visionary and Creator</p>
+
+<!-- LIVE TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-dot"></span><span class="ticker-label">MDL FILINGS 24H</span><span class="ticker-val">127</span></span>
+    <span class="ticker-item"><span class="ticker-label">ACTIVE MDLs</span><span class="ticker-val">28</span></span>
+    <span class="ticker-item"><span class="ticker-label">NEW FDA ALERTS</span><span class="ticker-val">6</span></span>
+    <span class="ticker-item"><span class="ticker-label">SOL WINDOWS CLOSING</span><span class="ticker-val">4</span></span>
+    <span class="ticker-item"><span class="ticker-label">JURY VERDICTS THIS WEEK</span><span class="ticker-val">3</span></span>
+    <span class="ticker-item"><span class="ticker-label">TORTS TRACKED</span><span class="ticker-val">40+</span></span>
+    <span class="ticker-item"><span class="ticker-label">DATA SOURCES</span><span class="ticker-val">30+</span></span>
+    <!-- Duplicated for seamless scroll -->
+    <span class="ticker-item"><span class="ticker-dot"></span><span class="ticker-label">MDL FILINGS 24H</span><span class="ticker-val">127</span></span>
+    <span class="ticker-item"><span class="ticker-label">ACTIVE MDLs</span><span class="ticker-val">28</span></span>
+    <span class="ticker-item"><span class="ticker-label">NEW FDA ALERTS</span><span class="ticker-val">6</span></span>
+    <span class="ticker-item"><span class="ticker-label">SOL WINDOWS CLOSING</span><span class="ticker-val">4</span></span>
+    <span class="ticker-item"><span class="ticker-label">JURY VERDICTS THIS WEEK</span><span class="ticker-val">3</span></span>
+    <span class="ticker-item"><span class="ticker-label">TORTS TRACKED</span><span class="ticker-val">40+</span></span>
+    <span class="ticker-item"><span class="ticker-label">DATA SOURCES</span><span class="ticker-val">30+</span></span>
   </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="brand" aria-label="MassTorts247 Home">
+      <svg class="brand-logo" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="0.5" y="0.5" width="45" height="45" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+        <text x="23" y="22" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="16" fill="#0F1C4F">MT</text>
+        <text x="23" y="38" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="13" fill="#C4A240">24/7</text>
+      </svg>
+      <span class="brand-name">Mass Torts<span class="accent">&nbsp;24/7</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#torts">Tort Library</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">Resources</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/signin" class="nav-signin">Sign In</a>
+      <a href="/signin" class="btn btn-primary">Start Free</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="hero-eyebrow">Mass Tort Decision Engine · Updated 24/7</span>
+        <h1>Know which case to take. <em>Before the SOL closes.</em></h1>
+        <p class="hero-sub">
+          Real-time MDL filings, live statute-of-limitations countdowns, A/B/C/D case scoring, and settlement intelligence — the decision engine built for plaintiff attorneys and the firms that run intake at volume.
+        </p>
+        <div class="hero-actions">
+          <a href="/signin" class="btn btn-primary btn-lg">Start Free Access</a>
+          <a href="#platform" class="btn btn-ghost-light btn-lg">See How It Works</a>
+        </div>
+        <div class="hero-badges" role="list">
+          <div class="hero-badge" role="listitem">
+            <span class="hero-badge-val">40+</span>
+            <span class="hero-badge-lbl">Active Torts</span>
+          </div>
+          <div class="hero-badge" role="listitem">
+            <span class="hero-badge-val">30+</span>
+            <span class="hero-badge-lbl">Live Data Sources</span>
+          </div>
+          <div class="hero-badge" role="listitem">
+            <span class="hero-badge-val">24/7</span>
+            <span class="hero-badge-lbl">Automated Intelligence</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard preview (decorative, aria-hidden) -->
+      <aside class="hero-preview" aria-hidden="true">
+        <div class="preview-bar">
+          <span class="preview-title">Intelligence Command</span>
+          <span class="preview-live">Live Feed</span>
+        </div>
+        <div class="preview-kpi">
+          <div class="kpi">
+            <div class="kpi-lbl">New Filings 7d</div>
+            <div class="kpi-val">347</div>
+            <div class="kpi-trend">↑ 12% vs prior</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-lbl">Torts Tracked</div>
+            <div class="kpi-val">40+</div>
+            <div class="kpi-trend">28 active · 12 emerging</div>
+          </div>
+        </div>
+        <div class="preview-section-label">Top Movers This Week · Showing 5 of 40+</div>
+        <div>
+          <div class="preview-row">
+            <div class="preview-row-left">
+              <span class="status-dot status-active"></span>
+              <div>
+                <div class="preview-row-name">Depo-Provera</div>
+                <div class="preview-row-meta">MDL 3140 · N.D. Cal.</div>
+              </div>
+            </div>
+            <span class="preview-row-right">+ 84 filings</span>
+          </div>
+          <div class="preview-row">
+            <div class="preview-row-left">
+              <span class="status-dot status-active"></span>
+              <div>
+                <div class="preview-row-name">AFFF</div>
+                <div class="preview-row-meta">MDL 2873 · D.S.C.</div>
+              </div>
+            </div>
+            <span class="preview-row-right">+ 61 filings</span>
+          </div>
+          <div class="preview-row">
+            <div class="preview-row-left">
+              <span class="status-dot status-alert"></span>
+              <div>
+                <div class="preview-row-name">Hair Relaxer</div>
+                <div class="preview-row-meta">SOL window closing</div>
+              </div>
+            </div>
+            <span class="preview-row-right">27 days</span>
+          </div>
+          <div class="preview-row">
+            <div class="preview-row-left">
+              <span class="status-dot status-monitor"></span>
+              <div>
+                <div class="preview-row-name">Ozempic NAION</div>
+                <div class="preview-row-meta">Emerging signals</div>
+              </div>
+            </div>
+            <span class="preview-row-right">Monitor</span>
+          </div>
+          <div class="preview-row">
+            <div class="preview-row-left">
+              <span class="status-dot status-active"></span>
+              <div>
+                <div class="preview-row-name">Talc (J&amp;J)</div>
+                <div class="preview-row-meta">Verdict tracker active</div>
+              </div>
+            </div>
+            <span class="preview-row-right">+ 42 filings</span>
+          </div>
+          <div class="preview-row preview-row-more">
+            <div class="preview-row-left">
+              <div>
+                <div class="preview-row-name" style="color: var(--gold); font-weight: 600;">+ 35 more torts tracked →</div>
+                <div class="preview-row-meta">Roundup, Camp Lejeune, NEC, Paragard, Suboxone, Uber, Keytruda…</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST STRIP -->
+<section class="trust" aria-label="Data sources">
+  <div class="container">
+    <div class="trust-inner">
+      <span class="trust-label">Powered by authoritative public sources</span>
+      <span class="trust-source">PACER</span>
+      <span class="trust-source">openFDA</span>
+      <span class="trust-source">MAUDE</span>
+      <span class="trust-source">SEC EDGAR</span>
+      <span class="trust-source">EPA ECHO</span>
+      <span class="trust-source">PubMed</span>
+      <span class="trust-source">JPML</span>
+      <span class="trust-source">+ 23 more</span>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPS -->
+<section id="platform">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Built to Decide</span>
+      <h2>Not another intelligence reader. A decision engine.</h2>
+      <p>Every feed, every filing, every verdict runs through A/B/C/D case scoring and the Tort Opportunity Score. Your intake team doesn't read intelligence anymore. They act on it.</p>
+    </div>
+
+    <div class="value">
+      <article class="value-card">
+        <span class="value-num">— 01</span>
+        <h3>Score Any Case in 30 Seconds</h3>
+        <p>Diagnosis, state, exposure, age — Ask MT247 returns an A/B/C/D recommendation with case value range and SOL analysis before the intake call ends.</p>
+      </article>
+      <article class="value-card">
+        <span class="value-num">— 02</span>
+        <h3>Never Miss an SOL Again</h3>
+        <p>Per-state statute tables with live countdown timers. When a revival window drops under 30 days, every attorney watching that tort gets an email.</p>
+      </article>
+      <article class="value-card">
+        <span class="value-num">— 03</span>
+        <h3>Move Before the Market</h3>
+        <p>Every jury verdict pushed the moment it hits PACER. Every defendant bankruptcy signal flagged from SEC EDGAR. The firms that move first take the lead counsel role.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">The Full Stack</span>
+      <h2>From intake call to courthouse. One platform.</h2>
+      <p>Eleven tools your intake team, litigation team, and marketing team use every day. Synced in real time. Priced to scale.</p>
+    </div>
+
+    <div class="features">
+      <article class="feat">
+        <div class="feat-icon">L</div>
+        <h3>Live MDL Tracker</h3>
+        <p>Every active MDL, filing volume by district and law firm, daily docket updates from PACER.</p>
+        <span class="feat-tier">All Tiers</span>
+      </article>
+      <article class="feat">
+        <div class="feat-icon">$</div>
+        <h3>Case Value Estimator</h3>
+        <p>AI estimates dollar value range from client facts — diagnosis, exposure, state, age.</p>
+        <span class="feat-tier">T2+</span>
+      </article>
+      <article class="feat">
+        <div class="feat-icon">⌛</div>
+        <h3>SOL Countdown Timers</h3>
+        <p>Per-state statute of limitations with live countdowns and email alerts when windows close.</p>
+        <span class="feat-tier">All Tiers</span>
+      </article>
+      <article class="feat">
+        <div class="feat-icon">?</div>
+        <h3>Ask MT247</h3>
+        <p>Conversational AI trained on all platform data. Score a case in plain English, get SOL analysis, settlement ranges.</p>
+        <span class="feat-tier">T2+</span>
+      </article>
+      <article class="feat">
+        <div class="feat-icon">§</div>
+        <h3>Settlement Intelligence</h3>
+        <p>Historical settlement ranges by tort, jurisdiction, injury severity, defendant, and law firm.</p>
+        <span class="feat-tier">T2+</span>
+      </article>
+      <article class="feat">
+        <div class="feat-icon">⚖</div>
+        <h3>Jury Verdict Tracker</h3>
+        <p>Every mass tort verdict tracked the moment it lands in PACER. Push alerts to watching attorneys.</p>
+        <span class="feat-tier">T2+</span>
+      </article>
+      <article class="feat">
+        <div class="feat-icon">$$</div>
+        <h3>Defendant Financial Health</h3>
+        <p>SEC EDGAR signals, bankruptcy risk indicators, insurance coverage, debt load — per defendant.</p>
+        <span class="feat-tier">T2+</span>
+      </article>
+      <article class="feat">
+        <div class="feat-icon">📅</div>
+        <h3>Daily Intelligence Report</h3>
+        <p>Monday through Friday, 6 AM ET. Dark-mode email + full interactive web report. Zero friction.</p>
+        <span class="feat-tier">T2+</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TORT LIBRARY PREVIEW -->
+<section id="torts">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Tort Library</span>
+      <h2>40+ active torts. One 29-section intelligence template.</h2>
+      <p>Every tort page: MDL grid, causation theory, SOL table with countdown timers, key defendants, geographic exposure, live court filings, AI litigation brief, case scoring.</p>
+    </div>
+
+    <div class="torts">
+      <div class="tort-group">
+        <div class="tort-group-head">
+          <h3>Active Torts — Filing at Volume</h3>
+          <span class="tort-count">28 torts</span>
+        </div>
+        <ul class="tort-list">
+          <li>Roundup</li>
+          <li>AFFF / PFAS</li>
+          <li>Depo-Provera</li>
+          <li>Talc (J&amp;J)</li>
+          <li>Camp Lejeune</li>
+          <li>Ozempic Gastroparesis</li>
+          <li>Hair Relaxer</li>
+          <li>Social Media Addiction</li>
+          <li>PowerPort (Bard)</li>
+          <li>EtO Sterilization</li>
+          <li>NEC Baby Formula</li>
+          <li>Paragard IUD</li>
+          <li>Suboxone Film</li>
+          <li>Uber / Lyft Assault</li>
+          <li>Hotel Trafficking</li>
+          <li>Baby Food Metals</li>
+          <li>Benzene Exposure</li>
+          <li>Zantac</li>
+          <li>Keytruda</li>
+          <li>Discord Abuse</li>
+        </ul>
+      </div>
+
+      <div class="tort-group">
+        <div class="tort-group-head">
+          <h3>Emerging &amp; Pending MDLs</h3>
+          <span class="tort-count">12+ torts</span>
+        </div>
+        <ul class="tort-list">
+          <li>Ozempic NAION</li>
+          <li>AI Chatbot Harm</li>
+          <li>Roblox</li>
+          <li>ByHeart Infant Formula</li>
+          <li>Cartiva</li>
+          <li>Dupixent CTCL</li>
+          <li>Spinal Cord Stimulators</li>
+          <li>Sports Betting Addiction</li>
+          <li>Video Game Addiction</li>
+          <li>Ultra-Processed Food</li>
+          <li>Sextortion Platform Liability</li>
+          <li>Oxbryta</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Pricing</span>
+      <h2>Start free. Upgrade when intake volume justifies it.</h2>
+      <p>No trials. No discount tricks. Pick the tier you'll actually use.</p>
+    </div>
+
+    <div class="urgency-banner">
+      <strong>Prices are going up soon.</strong> &nbsp;Subscribe now to lock in the lowest rate.
+    </div>
+
+    <div class="billing-toggle" role="group" aria-label="Billing frequency">
+      <button class="toggle-btn active" data-period="monthly">Monthly</button>
+      <button class="toggle-btn" data-period="annual">Annual</button>
+    </div>
+    <p class="toggle-note"><strong>Annual subscribers:</strong> 20% bonus toward premium analytics.</p>
+
+    <div class="plans">
+      <!-- T1 FREE -->
+      <article class="plan">
+        <span class="plan-tier">— T1</span>
+        <h3 class="plan-name">Live Access</h3>
+        <div class="plan-price">
+          <span class="plan-price-val">$0</span>
+          <span class="plan-price-per">/ month</span>
+        </div>
+        <p class="plan-price-note">Free forever</p>
+        <p class="plan-desc">Start monitoring mass torts the moment they break. No credit card required.</p>
+        <ul class="plan-features">
+          <li>Live docket browser (Daily Docket)</li>
+          <li>Monday weekly summary email</li>
+          <li>Tort library read-only</li>
+          <li>Watch up to 3 torts</li>
+          <li>Google &amp; Microsoft 365 sign-in</li>
+        </ul>
+        <a href="/signin" class="btn btn-ghost-light" style="color:var(--navy); border-color:var(--navy);">Sign In for Free Access</a>
+      </article>
+
+      <!-- T2 -->
+      <article class="plan plan-featured">
+        <span class="plan-badge">Most Popular</span>
+        <span class="plan-tier">— T2</span>
+        <h3 class="plan-name">Daily Reports</h3>
+        <div class="plan-price">
+          <span class="plan-price-val" data-monthly="$100" data-annual="$80">$100</span>
+          <span class="plan-price-per">/ month</span>
+        </div>
+        <p class="plan-price-note">Law firms &amp; attorneys</p>
+        <p class="plan-desc">Everything in Live Access, plus the daily intelligence report, AI intake assistant, and unlimited Watch.</p>
+        <ul class="plan-features">
+          <li>Daily intelligence report Mon–Fri</li>
+          <li>Weekly Monday digest</li>
+          <li>MDL filings by tort &amp; law firm</li>
+          <li>AdSpy competitor ad library</li>
+          <li>Case Value Estimator</li>
+          <li>Ask MT247 AI intake assistant</li>
+          <li>SOL countdown alerts</li>
+          <li>Watch unlimited torts</li>
+          <li>Jury verdict tracker (real-time)</li>
+          <li>Defendant financial health</li>
+          <li>Mobile app + Slack / Teams</li>
+        </ul>
+        <a href="/signin" class="btn btn-primary">Sign In to Continue</a>
+      </article>
+
+      <!-- T3 -->
+      <article class="plan">
+        <span class="plan-tier">— T3</span>
+        <h3 class="plan-name">Full Access</h3>
+        <div class="plan-price">
+          <span class="plan-price-val" data-monthly="$500" data-annual="$400">$500</span>
+          <span class="plan-price-per">/ month</span>
+        </div>
+        <p class="plan-price-note">Marketers &amp; ABS firms</p>
+        <p class="plan-desc">Everything in Daily Reports, plus Campaign ROI, API access, agentic research, and white-label reports.</p>
+        <ul class="plan-features">
+          <li>Everything in Daily Reports</li>
+          <li>State court filings</li>
+          <li>Campaign ROI Calculator</li>
+          <li>REST API access</li>
+          <li>Agentic Research Tools (invite-only)</li>
+          <li>White-label reports</li>
+          <li>Sponsored tort-page placements</li>
+          <li>Litigation finance connection</li>
+          <li>Co-counsel matching</li>
+          <li>Expert witness directory</li>
+        </ul>
+        <a href="/signin" class="btn btn-ghost-light" style="color:var(--navy); border-color:var(--navy);">Sign In to Continue</a>
+      </article>
+    </div>
+
+    <div class="callouts">
+      <div class="callout">
+        <div class="callout-icon">📰</div>
+        <h4>Daily &amp; Weekly Reports</h4>
+        <p>Lightweight dark-mode email plus full interactive web report.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-icon">⟁</div>
+        <h4>Live Docket Platform</h4>
+        <p>PACER + CourtListener + JPML, continuously synced.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-icon">↗</div>
+        <h4>Prices Going Up</h4>
+        <p>Lock in the lowest rate before the next pricing review.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Common Questions</span>
+      <h2>What firms ask before they subscribe.</h2>
+    </div>
+
+    <div class="faq">
+      <details class="faq-item">
+        <summary>Where does your data come from?</summary>
+        <p>MassTorts247 aggregates intelligence from 30+ authoritative public sources including PACER and CourtListener for court dockets, openFDA and MAUDE for adverse events, SEC EDGAR for defendant financials, EPA ECHO for environmental enforcement, PubMed and Semantic Scholar for scientific literature, and the JPML for MDL statistics. Every data point links back to its original source.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is this different from a docket-alert service?</summary>
+        <p>Docket alerts tell you a filing happened. MassTorts247 tells you what it means. We layer AI case scoring, settlement intelligence, SOL analysis, defendant financial health, and the Tort Opportunity Score on top of raw docket data — so instead of reading intelligence, you act on it.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is the Case Value Estimator reliable enough for intake?</summary>
+        <p>The estimator outputs a value range — not a single number — based on historical settlements for that specific tort, jurisdiction, and injury type. It updates continuously as new verdicts and settlements are recorded. Every output is an aid to attorney judgment, not a substitute for it.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What authentication does the platform use?</summary>
+        <p>Google OAuth and Microsoft 365 only. We require corporate email — consumer Gmail, Outlook, and Yahoo addresses are not accepted. This keeps the platform firmly professional and maintains the integrity of firm-level access controls.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I try the platform before subscribing?</summary>
+        <p>Yes. The Live Access tier is free forever — sign in with your corporate Google or Microsoft 365 account and you get the live docket browser, the Monday weekly summary email, and watch lists for up to 3 torts. No credit card required.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer API access?</summary>
+        <p>Yes — the T3 Full Access tier includes REST API access so firms can pull MassTorts247 intelligence directly into Clio, Filevine, MyCase, or Salesforce Legal. Intake teams see SOL status, case value ranges, and A/B/C/D scores inside their existing CRM.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>In mass torts, filing first is worth more than <em>filing best</em>.</h2>
+    <p>Lead counsel goes to the firm that files first. Start with free Live Access and lock in the lowest rate before the next pricing review.</p>
+    <a href="/signin" class="btn btn-primary btn-lg">Start Free Access</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="brand">
+          <svg class="brand-logo" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="0.5" y="0.5" width="45" height="45" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+            <text x="23" y="22" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="16" fill="#0F1C4F">MT</text>
+            <text x="23" y="38" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="13" fill="#C4A240">24/7</text>
+          </svg>
+          <span class="brand-name">Mass Torts<span class="accent">&nbsp;24/7</span></span>
+        </a>
+        <p class="footer-tagline">The mass tort decision engine for plaintiff attorneys. Real-time MDL filings, AI case scoring, and settlement intelligence — updated 24/7.</p>
+        <p class="footer-attribution">Powered by LeadGen247 LLC. <a href="https://leadgen247.com" rel="noopener">LeadGen247.com</a></p>
+      </div>
+
+      <div>
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="#platform">Intelligence</a></li>
+          <li><a href="#torts">Tort Library</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="/daily-docket">Daily Docket</a></li>
+          <li><a href="/ask-mt247">Ask MT247</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/support">Support</a></li>
+          <li><a href="/api">API Docs</a></li>
+          <li><a href="mailto:info@masstorts247.com">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/disclaimer">Disclaimer</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/cookies">Cookie Policy</a></li>
+          <li><a href="/acceptable-use">Acceptable Use</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-address">
+        <div>© 2026 MassTorts247. All rights reserved.</div>
+        <div style="margin-top:4px;">MassTorts247 · LeadGen247 Network · [Physical mailing address — required by CAN-SPAM]</div>
+      </div>
+      <div>
+        MassTorts247 provides mass tort intelligence and is not a law firm. Nothing on this site is legal advice.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER (GDPR) -->
+<div class="cookie" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <div class="cookie-inner">
+    <p class="cookie-text">
+      We use cookies to provide authentication, remember your preferences, and analyze how the platform is used.
+      See our <a href="/cookies">Cookie Policy</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="btn btn-ghost-light" style="color:var(--white); border-color:rgba(255,255,255,0.4);" onclick="cookieChoice('reject')">Reject</button>
+      <button class="btn btn-primary" onclick="cookieChoice('accept')">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Mobile nav toggle
+function toggleNav() {
+  var links = document.getElementById('navLinks');
+  var btn = document.querySelector('.nav-toggle');
+  var isOpen = links.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+// Close mobile nav on link click
+document.querySelectorAll('#navLinks a').forEach(function(a){
+  a.addEventListener('click', function(){
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+// Pricing toggle (monthly / annual)
+document.querySelectorAll('.toggle-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.toggle-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var period = btn.dataset.period;
+    document.querySelectorAll('.plan-price-val[data-monthly]').forEach(function(el){
+      el.textContent = period === 'annual' ? el.dataset.annual : el.dataset.monthly;
+    });
+  });
+});
+
+// Cookie banner (show once, persist in localStorage)
+(function(){
+  try {
+    if (!localStorage.getItem('mt247_cookie')) {
+      setTimeout(function(){ document.getElementById('cookieBanner').classList.add('show'); }, 1200);
+    }
+  } catch(e){}
+})();
+function cookieChoice(choice){
+  try { localStorage.setItem('mt247_cookie', choice); } catch(e){}
+  document.getElementById('cookieBanner').classList.remove('show');
+}
+</script>
+
 </body>
 </html>
