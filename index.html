@@ -1103,6 +1103,65 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+/* =========================================================
+   MOBILE FIXES v1 — Phase 2.1 hotfixes
+   Added 2026-04-22. Reference: conversation re: 5 mobile bugs.
+   ========================================================= */
+
+/* FIX 1 — Keep the live ticker animating on mobile even if the OS
+   has "Reduce Motion" on. The ticker is informational, not decorative,
+   so it's exempt from the motion preference. */
+.ticker-track { animation: scroll 60s linear infinite !important; }
+
+/* FIX 2 — Uncrowd the mobile nav bar.
+   Hide the "Start Free" gold button AND the "Sign In" text link on mobile;
+   both live inside the hamburger drawer already. This also gives the
+   brand "Mass Torts 24/7" enough room to render on a single line. */
+@media (max-width: 720px) {
+  .nav-cta .btn-primary { display: none; }
+  .nav-inner { gap: 12px; }
+  .brand-name { white-space: nowrap; }
+}
+
+/* FIX 3 — Make the open mobile menu visually distinct from the nav bar. */
+@media (max-width: 720px) {
+  .nav-links.open {
+    background: #1A2A6B;
+    border-top: 1px solid rgba(196, 162, 64, 0.35);
+    box-shadow: 0 12px 28px rgba(10, 20, 56, 0.45);
+  }
+  .nav-links.open a {
+    color: #FFFFFF;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .nav-links.open a:hover { color: var(--gold); }
+}
+
+/* FIX 4 — Center the "Start Free Access" CTA and its text on mobile. */
+@media (max-width: 720px) {
+  .hero-actions {
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-actions .btn {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* FIX 5 — Center the 40+ / 30+ / 24/7 stats block on mobile. */
+@media (max-width: 720px) {
+  .hero-badges {
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-badge { align-items: center; }
+}
+
+/* =========================================================
+   END MOBILE FIXES v1
+   ========================================================= */
 </style>
 <link rel="stylesheet" href="/styles/masstorts247.css">
 <script src="/scripts/masstorts247.js" defer></script>
