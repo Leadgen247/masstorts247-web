@@ -1096,46 +1096,6 @@ section { padding: 80px 0; }
   line-height: 1.6;
 }
 .footer-address { max-width: 520px; }
-
-/* =================== COOKIE BANNER =================== */
-.cookie {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--navy-dark);
-  color: var(--white);
-  padding: 20px 24px;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  border-top: 2px solid var(--gold);
-  display: none;
-}
-.cookie.show { display: block; animation: slideUp 0.3s ease; }
-@keyframes slideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-.cookie-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-.cookie-text {
-  font-size: 13px;
-  flex: 1;
-  min-width: 240px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.8);
-}
-.cookie-text a { color: var(--gold); text-decoration: underline; }
-.cookie-actions { display: flex; gap: 10px; }
-.cookie .btn { padding: 10px 20px; min-height: 40px; }
-
 /* =================== MOBILE =================== */
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -1823,20 +1783,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   </div>
 </footer>
 
-<!-- COOKIE BANNER (GDPR) -->
-<div class="cookie" id="cookieBanner" role="dialog" aria-label="Cookie consent">
-  <div class="cookie-inner">
-    <p class="cookie-text">
-      We use cookies to provide authentication, remember your preferences, and analyze how the platform is used.
-      See our <a href="/cookies">Cookie Policy</a>.
-    </p>
-    <div class="cookie-actions">
-      <button class="btn btn-ghost-light" style="color:var(--white); border-color:rgba(255,255,255,0.4);" onclick="cookieChoice('reject')">Reject</button>
-      <button class="btn btn-primary" onclick="cookieChoice('accept')">Accept</button>
-    </div>
-  </div>
-</div>
-
 <script>
 // Mobile nav toggle
 function toggleNav() {
@@ -1865,19 +1811,350 @@ document.querySelectorAll('.toggle-btn').forEach(function(btn){
   });
 });
 
-// Cookie banner (show once, persist in localStorage)
-(function(){
-  try {
-    if (!localStorage.getItem('mt247_cookie')) {
-      setTimeout(function(){ document.getElementById('cookieBanner').classList.add('show'); }, 1200);
-    }
-  } catch(e){}
-})();
-function cookieChoice(choice){
-  try { localStorage.setItem('mt247_cookie', choice); } catch(e){}
-  document.getElementById('cookieBanner').classList.remove('show');
-}
-</script>
 
+</script>
+<!--
+================================================================================
+  MASSTORTS247 COOKIE CONSENT BANNER (PHASE 2.4)
+================================================================================
+  Replaces the existing cosmetic banner in index.html.
+
+  WHAT TO DO:
+  1. In index.html, find the existing cookie banner block. It currently looks
+     something like:
+
+        <div class="cookie-banner">
+          ...cosmetic notice...
+        </div>
+
+     Locate that block (originally around lines 1554-1569) and DELETE it
+     entirely.
+
+  2. Paste this entire file's contents in the same spot, just before </body>.
+
+  3. Done. The banner appears for first-time visitors, stores choice for
+     12 months, and exposes window.MT247Cookies API for analytics gating.
+
+  HOW TO USE THE API ELSEWHERE (e.g., when adding Google Analytics later):
+
+     <!-- Only fire GA if the user accepted analytics cookies -->
+     <script>
+       if (window.MT247Cookies && window.MT247Cookies.allowed('analytics')) {
+         // Insert your GA snippet here
+       }
+     </script>
+
+  Or listen for changes:
+
+     window.addEventListener('mt247:consent', function(e){
+       console.log('User consent updated:', e.detail);
+       // e.detail = { essential: true, preferences: true, analytics: false, marketing: false }
+     });
+
+  COMPLIANCE NOTES:
+  - Essential cookies always on (no consent needed under GDPR Recital 32)
+  - Preferences/Analytics/Marketing default OFF until user accepts
+  - "Reject All" is as easy as "Accept All" (GDPR requirement)
+  - Choice stored for 12 months, then re-prompted
+  - Footer "Cookie Preferences" link reopens the modal
+================================================================================
+-->
+
+<!-- Cookie banner styles -->
+<style>
+  /* Banner */
+  .mt247-cb-banner {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 9999;
+    background: #0F1C4F;
+    color: #FFFFFF;
+    border: 1px solid rgba(196,162,64,0.35);
+    border-radius: 8px;
+    padding: 20px 22px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 920px;
+    margin: 0 auto;
+    display: none;
+  }
+  .mt247-cb-banner.is-visible { display: block; }
+  .mt247-cb-banner .cb-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; justify-content: space-between; }
+  .mt247-cb-banner .cb-text { flex: 1 1 360px; }
+  .mt247-cb-banner .cb-text strong { color: #C4A240; font-weight: 700; display: block; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .mt247-cb-banner .cb-text p { margin: 0; color: rgba(255,255,255,0.9); font-size: 14px; }
+  .mt247-cb-banner .cb-text a { color: #C4A240; text-decoration: underline; }
+  .mt247-cb-banner .cb-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .mt247-cb-banner button {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: transparent;
+    color: #FFFFFF;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+  }
+  .mt247-cb-banner button:hover { background: rgba(255,255,255,0.1); border-color: #FFFFFF; }
+  .mt247-cb-banner button.cb-primary { background: #C4A240; color: #0F1C4F; border-color: #C4A240; }
+  .mt247-cb-banner button.cb-primary:hover { background: #D4B550; border-color: #D4B550; }
+
+  /* Preferences modal */
+  .mt247-cb-modal {
+    position: fixed; inset: 0; z-index: 10000;
+    background: rgba(10,20,56,0.65);
+    display: none; align-items: center; justify-content: center;
+    padding: 16px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  .mt247-cb-modal.is-visible { display: flex; }
+  .mt247-cb-dialog {
+    background: #FFFFFF;
+    border-radius: 8px;
+    max-width: 580px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .mt247-cb-dialog header { background: #0F1C4F; color: #FFFFFF; padding: 22px 24px; border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: space-between; }
+  .mt247-cb-dialog header h2 { font-family: 'Lora', Georgia, serif; font-size: 22px; font-weight: 600; color: #FFFFFF; margin: 0; }
+  .mt247-cb-dialog header button.cb-close { background: transparent; border: none; color: rgba(255,255,255,0.8); font-size: 24px; line-height: 1; cursor: pointer; padding: 4px 8px; }
+  .mt247-cb-dialog header button.cb-close:hover { color: #C4A240; }
+  .mt247-cb-dialog .cb-body { padding: 24px; color: #1A1A1A; font-size: 14px; line-height: 1.6; }
+  .mt247-cb-dialog .cb-intro { margin-bottom: 22px; color: #4A4D60; }
+  .mt247-cb-dialog .cb-cat { padding: 16px 0; border-top: 1px solid #E0E2EC; }
+  .mt247-cb-dialog .cb-cat:last-child { padding-bottom: 0; }
+  .mt247-cb-dialog .cb-cat-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  .mt247-cb-dialog .cb-cat-name { font-weight: 700; color: #0F1C4F; font-size: 15px; }
+  .mt247-cb-dialog .cb-cat-desc { color: #4A4D60; font-size: 13px; line-height: 1.6; margin: 0; }
+  /* Toggle switch */
+  .cb-toggle { position: relative; display: inline-block; width: 44px; height: 24px; flex-shrink: 0; }
+  .cb-toggle input { opacity: 0; width: 0; height: 0; }
+  .cb-slider { position: absolute; cursor: pointer; inset: 0; background: #ccc; border-radius: 24px; transition: 0.2s; }
+  .cb-slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: 0.2s; }
+  .cb-toggle input:checked + .cb-slider { background: #C4A240; }
+  .cb-toggle input:checked + .cb-slider:before { transform: translateX(20px); }
+  .cb-toggle input:disabled + .cb-slider { background: #0F1C4F; cursor: not-allowed; opacity: 0.5; }
+  .cb-toggle input:disabled + .cb-slider:before { background: #FFFFFF; }
+  .mt247-cb-dialog footer { padding: 20px 24px; background: #F4F5FA; border-radius: 0 0 8px 8px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+  .mt247-cb-dialog footer button {
+    font-family: inherit; font-size: 13px; font-weight: 600;
+    padding: 10px 18px; border-radius: 4px; cursor: pointer;
+    border: 1px solid #0F1C4F; background: transparent; color: #0F1C4F;
+    transition: all 0.15s ease;
+  }
+  .mt247-cb-dialog footer button:hover { background: rgba(15,28,79,0.08); }
+  .mt247-cb-dialog footer button.cb-primary { background: #0F1C4F; color: #FFFFFF; }
+  .mt247-cb-dialog footer button.cb-primary:hover { background: #1A2A6B; }
+
+  @media (max-width: 720px) {
+    .mt247-cb-banner { left: 8px; right: 8px; bottom: 8px; padding: 16px; }
+    .mt247-cb-banner .cb-actions { width: 100%; }
+    .mt247-cb-banner .cb-actions button { flex: 1 1 auto; min-width: 0; }
+  }
+  @media (prefers-color-scheme: dark) {
+    .mt247-cb-dialog { background: #1a1a1a; }
+    .mt247-cb-dialog .cb-body { color: #E5E5E5; }
+    .mt247-cb-dialog .cb-cat-name { color: #C4A240; }
+    .mt247-cb-dialog .cb-cat-desc, .mt247-cb-dialog .cb-intro { color: rgba(255,255,255,0.7); }
+    .mt247-cb-dialog .cb-cat { border-top-color: rgba(255,255,255,0.12); }
+    .mt247-cb-dialog footer { background: #0F1C4F; }
+    .mt247-cb-dialog footer button { color: #FFFFFF; border-color: rgba(255,255,255,0.4); }
+    .mt247-cb-dialog footer button.cb-primary { background: #C4A240; color: #0F1C4F; border-color: #C4A240; }
+  }
+</style>
+
+<!-- Cookie banner markup -->
+<div id="mt247-cookie-banner" class="mt247-cb-banner" role="region" aria-label="Cookie consent" aria-live="polite">
+  <div class="cb-row">
+    <div class="cb-text">
+      <strong>Cookies on MassTorts247</strong>
+      <p>We use essential cookies to run the platform. With your permission, we'd also like to use analytics cookies to understand how the site is used. See our <a href="/cookies">Cookie Policy</a> and <a href="/privacy">Privacy Policy</a>.</p>
+    </div>
+    <div class="cb-actions">
+      <button type="button" data-cb-action="reject">Reject Non-Essential</button>
+      <button type="button" data-cb-action="prefs">Preferences</button>
+      <button type="button" class="cb-primary" data-cb-action="accept">Accept All</button>
+    </div>
+  </div>
+</div>
+
+<!-- Cookie preferences modal -->
+<div id="mt247-cookie-modal" class="mt247-cb-modal" role="dialog" aria-modal="true" aria-labelledby="mt247-cb-title">
+  <div class="mt247-cb-dialog">
+    <header>
+      <h2 id="mt247-cb-title">Cookie Preferences</h2>
+      <button type="button" class="cb-close" data-cb-action="close" aria-label="Close">&times;</button>
+    </header>
+    <div class="cb-body">
+      <p class="cb-intro">Choose which categories of cookies you allow. Essential cookies are always on because the platform won't work without them. You can change these settings anytime by clicking "Cookie Preferences" in the footer.</p>
+
+      <div class="cb-cat">
+        <div class="cb-cat-head">
+          <span class="cb-cat-name">Essential</span>
+          <label class="cb-toggle"><input type="checkbox" checked disabled><span class="cb-slider"></span></label>
+        </div>
+        <p class="cb-cat-desc">Required for authentication, security, and core platform features. Cannot be disabled.</p>
+      </div>
+
+      <div class="cb-cat">
+        <div class="cb-cat-head">
+          <span class="cb-cat-name">Preferences</span>
+          <label class="cb-toggle"><input type="checkbox" data-cb-toggle="preferences"><span class="cb-slider"></span></label>
+        </div>
+        <p class="cb-cat-desc">Remembers your interface choices like theme (light/dark), watchlist selections, and layout preferences.</p>
+      </div>
+
+      <div class="cb-cat">
+        <div class="cb-cat-head">
+          <span class="cb-cat-name">Analytics</span>
+          <label class="cb-toggle"><input type="checkbox" data-cb-toggle="analytics"><span class="cb-slider"></span></label>
+        </div>
+        <p class="cb-cat-desc">Helps us understand how the platform is used so we can improve it. We use Google Analytics with IP anonymization.</p>
+      </div>
+
+      <div class="cb-cat">
+        <div class="cb-cat-head">
+          <span class="cb-cat-name">Marketing</span>
+          <label class="cb-toggle"><input type="checkbox" data-cb-toggle="marketing"><span class="cb-slider"></span></label>
+        </div>
+        <p class="cb-cat-desc">We do not currently use marketing or advertising cookies. If we add them in the future, your choice here will be honored.</p>
+      </div>
+    </div>
+    <footer>
+      <button type="button" data-cb-action="reject">Reject Non-Essential</button>
+      <button type="button" data-cb-action="save" class="cb-primary">Save Preferences</button>
+      <button type="button" data-cb-action="accept" class="cb-primary">Accept All</button>
+    </footer>
+  </div>
+</div>
+
+<!-- Cookie banner logic -->
+<script>
+(function(){
+  'use strict';
+  var STORAGE_KEY = 'mt247_consent';
+  var STORAGE_VERSION = 1;
+  var EXPIRY_DAYS = 365;
+
+  var banner = document.getElementById('mt247-cookie-banner');
+  var modal = document.getElementById('mt247-cookie-modal');
+  if (!banner || !modal) return;
+
+  function readConsent(){
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      if (parsed.v !== STORAGE_VERSION) return null;
+      if (parsed.exp && Date.now() > parsed.exp) return null;
+      return parsed;
+    } catch(e) { return null; }
+  }
+
+  function writeConsent(prefs){
+    var record = {
+      v: STORAGE_VERSION,
+      exp: Date.now() + (EXPIRY_DAYS * 24 * 60 * 60 * 1000),
+      ts: Date.now(),
+      essential: true,
+      preferences: !!prefs.preferences,
+      analytics: !!prefs.analytics,
+      marketing: !!prefs.marketing
+    };
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(record)); } catch(e){}
+    try {
+      window.dispatchEvent(new CustomEvent('mt247:consent', { detail: record }));
+    } catch(e){}
+    return record;
+  }
+
+  function showBanner(){ banner.classList.add('is-visible'); }
+  function hideBanner(){ banner.classList.remove('is-visible'); }
+  function showModal(){
+    var current = readConsent() || {};
+    modal.querySelectorAll('input[data-cb-toggle]').forEach(function(input){
+      var key = input.getAttribute('data-cb-toggle');
+      input.checked = !!current[key];
+    });
+    modal.classList.add('is-visible');
+    document.body.style.overflow = 'hidden';
+  }
+  function hideModal(){
+    modal.classList.remove('is-visible');
+    document.body.style.overflow = '';
+  }
+
+  function acceptAll(){
+    writeConsent({ preferences: true, analytics: true, marketing: true });
+    hideBanner(); hideModal();
+  }
+  function rejectAll(){
+    writeConsent({ preferences: false, analytics: false, marketing: false });
+    hideBanner(); hideModal();
+  }
+  function savePrefs(){
+    var prefs = {};
+    modal.querySelectorAll('input[data-cb-toggle]').forEach(function(input){
+      prefs[input.getAttribute('data-cb-toggle')] = input.checked;
+    });
+    writeConsent(prefs);
+    hideBanner(); hideModal();
+  }
+
+  // Wire up actions
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-cb-action]');
+    if (!t) return;
+    var action = t.getAttribute('data-cb-action');
+    if (action === 'accept') acceptAll();
+    else if (action === 'reject') rejectAll();
+    else if (action === 'prefs') showModal();
+    else if (action === 'save') savePrefs();
+    else if (action === 'close') hideModal();
+  });
+
+  // Close modal on overlay click
+  modal.addEventListener('click', function(e){
+    if (e.target === modal) hideModal();
+  });
+
+  // Close modal on Esc
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('is-visible')) hideModal();
+  });
+
+  // Show banner if no valid consent
+  if (!readConsent()) {
+    setTimeout(showBanner, 600);
+  }
+
+  // Public API for other scripts (e.g., GA gating)
+  window.MT247Cookies = {
+    allowed: function(category){
+      var c = readConsent();
+      if (!c) return false;
+      if (category === 'essential') return true;
+      return !!c[category];
+    },
+    get: function(){ return readConsent(); },
+    openPreferences: showModal,
+    accept: acceptAll,
+    reject: rejectAll,
+    reset: function(){
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
+      showBanner();
+    }
+  };
+})();
+</script>
 </body>
 </html>
