@@ -242,37 +242,71 @@ html[data-theme="dark"] {
   --text: #E8EAF2;
   --text-muted: #A8ABC0;
   --text-light: #7A7E95;
-  --white: #151B33;
   --border: #2A3150;
   --border-soft: #1E2540;
-  --navy: #1A2A6B;
-  --navy-dark: #0A1438;
-  --navy-soft: #243478;
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
   --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.5), 0 12px 32px rgba(0, 0, 0, 0.3);
 }
- 
-/* Smooth theme transitions (but not on page load) */
+
 html.theme-ready body,
 html.theme-ready body * {
   transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
- 
-/* Dark mode: keep navy header but adjust border */
-html[data-theme="dark"] .nav { background: #0A1438; border-bottom-color: rgba(196, 162, 64, 0.2); }
- 
-/* Dark mode: adjust hero if it uses white bg */
-html[data-theme="dark"] .hero { background: var(--body-bg); }
- 
-/* Dark mode: any card/box using --white needs to read differently */
-html[data-theme="dark"] .feature,
-html[data-theme="dark"] .tort-card,
+
+/* Section backgrounds that were white → body bg */
+html[data-theme="dark"] .trust,
+html[data-theme="dark"] .features-section,
+html[data-theme="dark"] .pricing-section,
+html[data-theme="dark"] .hero { background: var(--body-bg); border-color: var(--border-soft); }
+
+/* Card surfaces */
+html[data-theme="dark"] .value-card,
+html[data-theme="dark"] .feat,
+html[data-theme="dark"] .tort-group,
 html[data-theme="dark"] .plan,
-html[data-theme="dark"] .faq-item { background: var(--white); border-color: var(--border); }
- 
-/* Dark mode: image adjustments (reduce harshness of white logos/diagrams) */
+html[data-theme="dark"] .faq-item { background: #151B33; border-color: #2A3150; }
+html[data-theme="dark"] .feat:hover { background: #1A2148; border-color: var(--gold); }
+
+/* Text that hardcoded navy → light */
+html[data-theme="dark"] .value-card h3,
+html[data-theme="dark"] .feat h3,
+html[data-theme="dark"] .tort-group h3,
+html[data-theme="dark"] .plan-name,
+html[data-theme="dark"] .plan-price-val,
+html[data-theme="dark"] .callout h4,
+html[data-theme="dark"] .faq-item summary,
+html[data-theme="dark"] .section-head h2,
+html[data-theme="dark"] .urgency-banner { color: var(--text); }
+
+html[data-theme="dark"] .section-head p,
+html[data-theme="dark"] .plan-price-per,
+html[data-theme="dark"] .plan-price-note,
+html[data-theme="dark"] .plan-desc,
+html[data-theme="dark"] .tort-list li,
+html[data-theme="dark"] .trust-source,
+html[data-theme="dark"] .faq-item p,
+html[data-theme="dark"] .callout p { color: var(--text-muted); }
+
+html[data-theme="dark"] .plan-features li { color: var(--text); }
+html[data-theme="dark"] .trust-label { color: var(--text-light); }
+
+/* Plan ghost buttons have inline navy color — force override */
+html[data-theme="dark"] .plan .btn-ghost-light {
+  color: var(--text) !important;
+  border-color: var(--text-light) !important;
+}
+
+/* Urgency banner */
+html[data-theme="dark"] .urgency-banner { background: rgba(196, 162, 64, 0.1); border-color: rgba(196, 162, 64, 0.3); }
+
+/* Billing toggle */
+html[data-theme="dark"] .billing-toggle { background: var(--body-bg-soft); }
+html[data-theme="dark"] .toggle-btn { color: var(--text-muted); }
+html[data-theme="dark"] .toggle-btn.active { background: #243478; color: #FFFFFF; }
+
+/* Image softness */
 html[data-theme="dark"] img:not([src*=".svg"]) { opacity: 0.92; }
- 
+
 /* =================== THEME TOGGLE BUTTON =================== */
 .theme-toggle {
   background: transparent;
@@ -294,7 +328,7 @@ html[data-theme="dark"] img:not([src*=".svg"]) { opacity: 0.92; }
 .theme-toggle .icon-moon { display: block; }
 html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
- 
+
 @media (max-width: 960px) {
   .theme-toggle { width: 34px; height: 34px; }
 }
@@ -1890,54 +1924,7 @@ document.querySelectorAll('.toggle-btn').forEach(function(btn){
   });
 });
 
-
 </script>
-<!--
-================================================================================
-  MASSTORTS247 COOKIE CONSENT BANNER (PHASE 2.4)
-================================================================================
-  Replaces the existing cosmetic banner in index.html.
-
-  WHAT TO DO:
-  1. In index.html, find the existing cookie banner block. It currently looks
-     something like:
-
-        <div class="cookie-banner">
-          ...cosmetic notice...
-        </div>
-
-     Locate that block (originally around lines 1554-1569) and DELETE it
-     entirely.
-
-  2. Paste this entire file's contents in the same spot, just before </body>.
-
-  3. Done. The banner appears for first-time visitors, stores choice for
-     12 months, and exposes window.MT247Cookies API for analytics gating.
-
-  HOW TO USE THE API ELSEWHERE (e.g., when adding Google Analytics later):
-
-     <!-- Only fire GA if the user accepted analytics cookies -->
-     <script>
-       if (window.MT247Cookies && window.MT247Cookies.allowed('analytics')) {
-         // Insert your GA snippet here
-       }
-     </script>
-
-  Or listen for changes:
-
-     window.addEventListener('mt247:consent', function(e){
-       console.log('User consent updated:', e.detail);
-       // e.detail = { essential: true, preferences: true, analytics: false, marketing: false }
-     });
-
-  COMPLIANCE NOTES:
-  - Essential cookies always on (no consent needed under GDPR Recital 32)
-  - Preferences/Analytics/Marketing default OFF until user accepts
-  - "Reject All" is as easy as "Accept All" (GDPR requirement)
-  - Choice stored for 12 months, then re-prompted
-  - Footer "Cookie Preferences" link reopens the modal
-================================================================================
--->
 
 <!-- Cookie banner styles -->
 <style>
