@@ -83,7 +83,103 @@
   }
 }
 </script>
+<!-- ===========================================================
+     PHASE 2.2 — Additional JSON-LD schemas
+     Added 2026-04-22. Paste this block into <head> just after
+     the existing WebSite schema (after line 83, before the Fonts
+     preconnect). Do NOT remove the existing Person, LegalService,
+     or WebSite schemas — this only adds FAQPage and Article.
+     =========================================================== -->
 
+<!-- JSON-LD: FAQPage (built from the 6 FAQ items in the #faq section) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where does your data come from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MassTorts247 aggregates intelligence from 30+ authoritative public sources including PACER and CourtListener for court dockets, openFDA and MAUDE for adverse events, SEC EDGAR for defendant financials, EPA ECHO for environmental enforcement, PubMed and Semantic Scholar for scientific literature, and the JPML for MDL statistics. Every data point links back to its original source."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from a docket-alert service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Docket alerts tell you a filing happened. MassTorts247 tells you what it means. We layer AI case scoring, settlement intelligence, SOL analysis, defendant financial health, and the Tort Opportunity Score on top of raw docket data — so instead of reading intelligence, you act on it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Case Value Estimator reliable enough for intake?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The estimator outputs a value range — not a single number — based on historical settlements for that specific tort, jurisdiction, and injury type. It updates continuously as new verdicts and settlements are recorded. Every output is an aid to attorney judgment, not a substitute for it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What authentication does the platform use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Google OAuth and Microsoft 365 only. We require corporate email — consumer Gmail, Outlook, and Yahoo addresses are not accepted. This keeps the platform firmly professional and maintains the integrity of firm-level access controls."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I try the platform before subscribing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Live Access tier is free forever — sign in with your corporate Google or Microsoft 365 account and you get the live docket browser, the Monday weekly summary email, and watch lists for up to 3 torts. No credit card required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer API access?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — the T3 Full Access tier includes REST API access so firms can pull MassTorts247 intelligence directly into Clio, Filevine, MyCase, or Salesforce Legal. Intake teams see SOL status, case value ranges, and A/B/C/D scores inside their existing CRM."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- JSON-LD: Article (homepage as discoverable content) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "MassTorts247 — Mass Tort Intelligence for Plaintiff Attorneys",
+  "description": "Real-time MDL filings, live SOL countdowns, A/B/C/D case scoring, and settlement intelligence. The decision engine for plaintiff attorneys.",
+  "image": "https://masstorts247.com/og-image.png",
+  "author": {
+    "@type": "Person",
+    "name": "Chady Elias",
+    "jobTitle": "Visionary and Creator"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LeadGen247 Network",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://masstorts247.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://masstorts247.com/"
+  }
+}
+</script>
+
+<!-- ===========================================================
+     END Phase 2.2 JSON-LD additions
+     =========================================================== -->
 <!-- Fonts: Lora (brand serif) + system sans for body -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
