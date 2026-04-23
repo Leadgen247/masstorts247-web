@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta name="theme-color" content="#0F1C4F">
 
+<script>
+  // Runs before body renders to prevent light-mode flash in dark mode
+  (function(){
+    try {
+      var saved = localStorage.getItem('mt247_theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch(e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
 <!-- Primary SEO -->
 <title>MassTorts247 — Mass Tort Intelligence for Plaintiff Attorneys</title>
 <meta name="description" content="Real-time MDL filings, live SOL countdowns, A/B/C/D case scoring, and settlement intelligence. The decision engine for plaintiff attorneys. Updated 24/7.">
@@ -222,7 +234,71 @@
 
   --radius: 4px;
   --radius-lg: 8px;
+} <style>
+/* =================== DARK MODE THEME =================== */
+html[data-theme="dark"] {
+  --body-bg: #0A0F1F;
+  --body-bg-soft: #111831;
+  --text: #E8EAF2;
+  --text-muted: #A8ABC0;
+  --text-light: #7A7E95;
+  --white: #151B33;
+  --border: #2A3150;
+  --border-soft: #1E2540;
+  --navy: #1A2A6B;
+  --navy-dark: #0A1438;
+  --navy-soft: #243478;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.5), 0 12px 32px rgba(0, 0, 0, 0.3);
 }
+ 
+/* Smooth theme transitions (but not on page load) */
+html.theme-ready body,
+html.theme-ready body * {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+ 
+/* Dark mode: keep navy header but adjust border */
+html[data-theme="dark"] .nav { background: #0A1438; border-bottom-color: rgba(196, 162, 64, 0.2); }
+ 
+/* Dark mode: adjust hero if it uses white bg */
+html[data-theme="dark"] .hero { background: var(--body-bg); }
+ 
+/* Dark mode: any card/box using --white needs to read differently */
+html[data-theme="dark"] .feature,
+html[data-theme="dark"] .tort-card,
+html[data-theme="dark"] .plan,
+html[data-theme="dark"] .faq-item { background: var(--white); border-color: var(--border); }
+ 
+/* Dark mode: image adjustments (reduce harshness of white logos/diagrams) */
+html[data-theme="dark"] img:not([src*=".svg"]) { opacity: 0.92; }
+ 
+/* =================== THEME TOGGLE BUTTON =================== */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.85);
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.15s ease;
+}
+.theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+ 
+@media (max-width: 960px) {
+  .theme-toggle { width: 34px; height: 34px; }
+}
+</style>
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1267,6 +1343,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       <li><a href="#faq">Resources</a></li>
     </ul>
     <div class="nav-cta">
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+</button>
       <a href="/signin" class="nav-signin">Sign In</a>
       <a href="/signin" class="btn btn-primary">Start Free</a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav()">
@@ -2154,6 +2234,37 @@ document.querySelectorAll('.toggle-btn').forEach(function(btn){
       showBanner();
     }
   };
+})();// Theme toggle
+(function(){
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+ 
+  function applyTheme(theme, save){
+    document.documentElement.setAttribute('data-theme', theme);
+    if (save) {
+      try { localStorage.setItem('mt247_theme', theme); } catch(e){}
+    }
+    btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+ 
+  btn.addEventListener('click', function(){
+    var current = document.documentElement.getAttribute('data-theme') || 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark', true);
+  });
+ 
+  // Follow system changes if user hasn't explicitly chosen
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e){
+      if (!localStorage.getItem('mt247_theme')) {
+        applyTheme(e.matches ? 'dark' : 'light', false);
+      }
+    });
+  }
+ 
+  // Enable smooth transitions after initial paint
+  requestAnimationFrame(function(){
+    document.documentElement.classList.add('theme-ready');
+  });
 })();
 </script>
 </body>
