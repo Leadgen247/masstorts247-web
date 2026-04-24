@@ -1,7 +1,7 @@
 import { currentUser } from '@clerk/nextjs/server';
-import { UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
+import DashboardNav from './DashboardNav';
 
 export default async function DashboardPage() {
   const user = await currentUser();
@@ -11,51 +11,11 @@ export default async function DashboardPage() {
 
   return (
     <>
-      <nav className="app-nav">
-        <div className="app-nav-inner">
-          <Link href="/" className="app-brand">
-            <svg className="app-brand-logo" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0.5" y="0.5" width="45" height="45" fill="#FFFFFF" stroke="#000000" strokeWidth="1"/>
-              <text x="23" y="22" textAnchor="middle" fontFamily="Georgia, serif" fontWeight="900" fontStyle="italic" fontSize="16" fill="#0F1C4F">MT</text>
-              <text x="23" y="38" textAnchor="middle" fontFamily="Georgia, serif" fontWeight="900" fontStyle="italic" fontSize="13" fill="#C4A240">24/7</text>
-            </svg>
-            <span className="app-brand-name">Mass Torts<span className="accent">&nbsp;24/7</span></span>
-          </Link>
-          <div className="app-nav-user">
-            <span className="app-nav-email">
-              {user.emailAddresses[0]?.emailAddress}
-            </span>
-            <UserButton afterSignOutUrl="/" />
-          </div> 
-        </div>
-      </nav>
+      <DashboardNav email={user.emailAddresses[0]?.emailAddress || ''} />
 
       <div className="dash-wrap">
-        <aside className="dash-sidebar">
-          <h5>Intelligence</h5>
-          <ul>
-            <li><Link href="/dashboard" className="active">Overview</Link></li>
-            <li><Link href="/dashboard/daily-docket">Daily Docket</Link></li>
-            <li><Link href="/dashboard/watchlist">My Watchlist</Link></li>
-            <li><Link href="/dashboard/torts">Tort Library</Link></li>
-          </ul>
-
-          <h5>Tools</h5>
-          <ul>
-            <li><Link href="/dashboard/ask">Ask MT247</Link></li>
-            <li><Link href="/dashboard/estimator">Case Value Estimator</Link></li>
-            <li><Link href="/dashboard/sol">SOL Tracker</Link></li>
-          </ul>
-
-          <h5>Account</h5>
-          <ul>
-            <li><Link href="/dashboard/billing">Billing</Link></li>
-            <li><Link href="/dashboard/settings">Settings</Link></li>
-          </ul>
-        </aside>
-
         <main className="dash-main">
-          <h1>Welcome back, {firstName}.</h1>
+      <h1>Welcome back, {firstName}.</h1>
           <p className="dash-sub">Here's what's moving in mass torts right now.</p>
 
           <div className="dash-kpi">
