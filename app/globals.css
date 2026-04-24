@@ -285,3 +285,60 @@ a { color: inherit; text-decoration: none; }
   .app-nav-email { display: none; }
   .app-nav-user { gap: 8px; }
 }
+/* =========================================================
+   DASHBOARD — mobile sidebar drawer behavior
+   ========================================================= */
+@media (max-width: 960px) {
+  .dash-wrap {
+    display: block;
+    position: relative;
+  }
+  .dash-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    max-width: 80vw;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+    padding-top: 80px;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+  }
+  .dash-sidebar.open {
+    transform: translateX(0);
+  }
+  .dash-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 20, 56, 0.5);
+    z-index: 150;
+  }
+  .dash-overlay.open {
+    display: block;
+  }
+  .dash-main {
+    padding-top: 16px;
+  }
+  .dash-menu-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--white);
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0;
+  }
+  .dash-menu-toggle:hover { border-color: var(--gold); color: var(--gold); }
+}
+@media (min-width: 961px) {
+  .dash-menu-toggle { display: none !important; }
+  .dash-overlay { display: none !important; }
+}
