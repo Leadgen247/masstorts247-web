@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  MassTorts247 — sitemap.xml
+  Created by Chady Elias — Visionary and Creator
+  LeadGen247 Network · MassTorts247.com
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://masstorts247.com/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Legal pages (to be built in Phase 2.4; listed here so they're indexed immediately on publish) -->
+  <url>
+    <loc>https://masstorts247.com/disclaimer</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://masstorts247.com/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://masstorts247.com/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://masstorts247.com/cookies</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://masstorts247.com/acceptable-use</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!--
+    Future entries to add as pages ship:
+    - Tort pages:    /torts/depo-provera, /torts/afff, /torts/roundup, etc.
+    - Resource pages: /daily-docket, /ask-mt247, /blog
+    - FAQ page:      /faq (once extracted from homepage accordion)
+    - Support page:  /support
+    - API docs:      /api
+
+    Add each with a <url> block including <loc>, optional <lastmod>,
+    <changefreq> (daily | weekly | monthly), and <priority> (0.0-1.0).
+    Tort pages should be priority 0.9; evergreen pages 0.5-0.7.
+  -->
+
+</urlset>
