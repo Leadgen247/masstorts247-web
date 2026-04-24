@@ -86,8 +86,15 @@ async function upsertSubscription(sub: Stripe.Subscription) {
   }
 
   const status = mapStripeStatus(sub.status);
+  const stripeCustomerId2 = typeof sub.customer === 'string' ? sub.customer : sub.customer.id;
+  const currentPeriodStart = sub.current_period_start
+    ? new Date(sub.current_period_start * 1000).toISOString()
+    : null;
   const currentPeriodEnd = sub.current_period_end
     ? new Date(sub.current_period_end * 1000).toISOString()
+    : null;
+  const canceledAt = sub.canceled_at
+    ? new Date(sub.canceled_at * 1000).toISOString()
     : null;
 
   // Upsert subscriptions row (keyed by stripe_subscription_id)
@@ -100,11 +107,13 @@ async function upsertSubscription(sub: Stripe.Subscription) {
   const row = {
     user_id: userId,
     stripe_subscription_id: sub.id,
+    stripe_customer_id: stripeCustomerId2,
     tier: mapped.tier,
     status,
-    billing_period: mapped.billing_period,
+    current_period_start: currentPeriodStart,
     current_period_end: currentPeriodEnd,
     cancel_at_period_end: sub.cancel_at_period_end ?? false,
+    canceled_at: canceledAt,
   };
 
   if (existing?.id) {
