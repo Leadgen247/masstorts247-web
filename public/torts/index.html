@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0F1C4F">
+
+<title>Tort Library — All Active MDLs &amp; Mass Torts | MassTorts247</title>
+<meta name="description" content="Complete directory of 47 active US mass torts and MDLs — Depo-Provera, Social Media Harm, Paraquat, Hair Relaxer, Ozempic, Roundup, and more. Filter by status, category, and severity.">
+<link rel="canonical" href="https://masstorts247.com/torts">
+
+<meta name="author" content="Chady Elias">
+<meta name="creator" content="Chady Elias — Visionary and Creator">
+<meta name="publisher" content="LeadGen247 Network">
+<!-- Created by Chady Elias — Visionary and Creator │ MassTorts247.com │ LeadGen247 Network -->
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://masstorts247.com/torts">
+<meta property="og:title" content="Tort Library — All Active MDLs &amp; Mass Torts">
+<meta property="og:description" content="The complete decision engine directory of active mass tort litigation in the United States.">
+<meta property="og:site_name" content="MassTorts247">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/masstorts247.css">
+
+<style>
+  .idx-hero { background: linear-gradient(180deg, var(--navy) 0%, var(--navy-soft) 100%); color: var(--white); padding: 48px 0 40px; }
+  .idx-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 2rem + 1.5vw, 44px); font-weight: 700; line-height: 1.1; margin: 0 0 10px; letter-spacing: -.015em; color: var(--white); }
+  .idx-hero p { font-family: var(--font-serif); font-style: italic; color: rgba(255,255,255,.82); font-size: clamp(15px, .9rem + .3vw, 17px); max-width: 780px; line-height: 1.5; }
+  .idx-stats { display: flex; gap: 28px; margin-top: 24px; flex-wrap: wrap; }
+  .idx-stat-num { font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--gold-bright); }
+  .idx-stat-lbl { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.65); margin-top: 2px; }
+
+  .idx-filters { background: var(--white); border-bottom: 1px solid var(--border-soft); padding: 14px 0; position: sticky; top: 78px; z-index: 40; box-shadow: 0 2px 8px rgba(15,28,79,.04); }
+  .idx-filters-inner { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .idx-filter-lbl { font: 700 11px/1 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-right: 6px; }
+  .idx-chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; font: 600 12px/1 var(--font-sans); color: var(--text); background: var(--body-bg-soft); border: 1px solid transparent; border-radius: 99px; cursor: pointer; transition: all .15s ease; min-height: 32px; }
+  .idx-chip:hover { background: var(--navy); color: var(--white); }
+  .idx-chip[aria-pressed="true"] { background: var(--navy); color: var(--white); }
+  .idx-chip .ct { opacity: .7; font-weight: 500; }
+
+  .idx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; padding: 32px 0 48px; }
+  .tort-card { background: var(--white); border: 1px solid var(--border-soft); border-radius: var(--radius-lg); padding: 20px 22px; transition: all .2s ease; display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+  .tort-card:hover { border-color: var(--navy); box-shadow: 0 8px 24px rgba(15,28,79,.08); transform: translateY(-1px); }
+  .tort-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+  .tort-card h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 700; color: var(--navy); line-height: 1.15; letter-spacing: -.01em; margin: 0; }
+  .tort-card-mdl { font: 700 10px/1 var(--font-sans); letter-spacing: .08em; color: var(--gold); text-transform: uppercase; margin-top: 4px; }
+  .tort-card-blurb { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 6px 0 14px; flex: 1; }
+  .tort-card-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--border-soft); font-size: 12px; }
+  .tort-card-meta strong { color: var(--navy); font-weight: 700; }
+  .tort-card-arrow { color: var(--gold); font-weight: 700; }
+
+  .idx-badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; font: 700 10px/1 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; border-radius: 3px; white-space: nowrap; }
+  .idx-b-active  { background: rgba(26,122,58,.10);  color: #1A7A3A;    border: 1px solid rgba(26,122,58,.25); }
+  .idx-b-monitor { background: rgba(93,63,211,.10);  color: #5D3FD3;    border: 1px solid rgba(93,63,211,.25); }
+  .idx-b-newmdl  { background: rgba(15,28,79,.08);   color: var(--navy); border: 1px solid rgba(15,28,79,.25); }
+  .idx-b-quiet   { background: var(--body-bg-soft);  color: var(--text-muted); border: 1px solid var(--border); }
+  .idx-b-pending { background: rgba(184,134,11,.10); color: #8a6408;    border: 1px solid rgba(184,134,11,.25); }
+
+  .coming-soon { opacity: .55; cursor: not-allowed; pointer-events: none; position: relative; }
+  .coming-soon-ribbon { position: absolute; top: 10px; right: 10px; font: 700 9px/1 var(--font-sans); letter-spacing: .08em; color: var(--text-muted); text-transform: uppercase; }
+
+  .tp-footer { background: var(--navy-dark); color: rgba(255,255,255,.72); padding: 48px 0 24px; margin-top: 48px; font-size: 13px; }
+  .tp-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+  .tp-footer-brand { max-width: 340px; }
+  .tp-footer-brand p { line-height: 1.6; font-size: 13px; margin-top: 14px; color: rgba(255,255,255,.72); }
+  .tp-footer-col h4 { font-size: 12px; font-weight: 700; color: var(--white); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; }
+  .tp-footer-col ul { list-style: none; margin: 0; padding: 0; }
+  .tp-footer-col li { margin-bottom: 8px; }
+  .tp-footer-col a { color: rgba(255,255,255,.72); }
+  .tp-footer-col a:hover { color: var(--gold); }
+  .tp-footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 20px; font-size: 12px; color: rgba(255,255,255,.55); }
+  .tp-footer-disclaimer { margin-top: 10px; font-size: 11px; line-height: 1.55; }
+  @media (max-width: 767px) { .tp-footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } .idx-filters { top: 64px; } }
+</style>
+</head>
+<body>
+
+<div class="mt-ticker" aria-hidden="true">
+  <div class="mt-ticker-track">
+    <span class="mt-ticker-item"><span class="mt-ticker-dot"></span><span class="mt-ticker-label">TORT LIBRARY</span> <span class="mt-ticker-val">47 TRACKED MATTERS</span></span>
+    <span class="mt-ticker-item"><span class="mt-ticker-label">NEWEST</span> <span class="mt-ticker-val">DEPO-PROVERA · MDL 3140</span></span>
+    <span class="mt-ticker-item"><span class="mt-ticker-dot"></span><span class="mt-ticker-label">NEXT BELLWETHER</span> <span class="mt-ticker-val">DEC 7, 2026 · TONEY v. PFIZER</span></span>
+    <span class="mt-ticker-item"><span class="mt-ticker-label">LIVE FEEDS</span> <span class="mt-ticker-val">PACER · OPENFDA · PUBMED · SEC EDGAR</span></span>
+    <span class="mt-ticker-item"><span class="mt-ticker-dot"></span><span class="mt-ticker-label">TORT LIBRARY</span> <span class="mt-ticker-val">47 TRACKED MATTERS</span></span>
+    <span class="mt-ticker-item"><span class="mt-ticker-label">NEWEST</span> <span class="mt-ticker-val">DEPO-PROVERA · MDL 3140</span></span>
+    <span class="mt-ticker-item"><span class="mt-ticker-dot"></span><span class="mt-ticker-label">NEXT BELLWETHER</span> <span class="mt-ticker-val">DEC 7, 2026 · TONEY v. PFIZER</span></span>
+  </div>
+</div>
+
+<nav class="mt-nav" role="navigation" aria-label="Main">
+  <div class="mt-nav-inner">
+    <a href="/" class="mt-brand" aria-label="MassTorts247 Home">
+      <svg class="mt-brand-logo" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="0.5" y="0.5" width="45" height="45" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+        <text x="23" y="22" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="16" fill="#0F1C4F">MT</text>
+        <text x="23" y="38" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="13" fill="#C4A240">24/7</text>
+      </svg>
+      <span class="mt-brand-name">Mass Torts<span class="accent">&nbsp;24/7</span></span>
+    </a>
+    <ul class="mt-nav-links">
+      <li><a href="/#platform">Platform</a></li>
+      <li><a href="/torts" aria-current="page">Tort Library</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">Resources</a></li>
+    </ul>
+    <div class="mt-nav-cta">
+      <a href="/signin" class="mt-nav-signin">Sign In</a>
+      <a href="/signin" class="mt-btn mt-btn-primary">Start Free</a>
+      <button class="mt-nav-toggle" aria-label="Toggle menu" aria-controls="mt-drawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="idx-hero">
+  <div class="container">
+    <h1>Tort Library</h1>
+    <p>Every active MDL and mass tort in the United States — tracked in real time through PACER, OpenFDA, PubMed, and SEC EDGAR. Built for plaintiff attorneys deciding <em>what to do next</em>, not just <em>what happened</em>.</p>
+    <div class="idx-stats">
+      <div><div class="idx-stat-num">47</div><div class="idx-stat-lbl">Tracked matters</div></div>
+      <div><div class="idx-stat-num">28</div><div class="idx-stat-lbl">Active MDLs</div></div>
+      <div><div class="idx-stat-num">10</div><div class="idx-stat-lbl">On monitor list</div></div>
+      <div><div class="idx-stat-num">4</div><div class="idx-stat-lbl">New MDL (last 90d)</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="idx-filters">
+  <div class="container idx-filters-inner">
+    <span class="idx-filter-lbl">Status</span>
+    <button class="idx-chip" aria-pressed="true">All <span class="ct">47</span></button>
+    <button class="idx-chip">Active <span class="ct">28</span></button>
+    <button class="idx-chip">Monitor <span class="ct">10</span></button>
+    <button class="idx-chip">New MDL <span class="ct">4</span></button>
+    <button class="idx-chip">Pending <span class="ct">2</span></button>
+    <button class="idx-chip">Quiet <span class="ct">3</span></button>
+  </div>
+</div>
+
+<main>
+<div class="container">
+<div class="idx-grid">
+
+  <a href="/torts/depo-provera.html" class="tort-card">
+    <div class="tort-card-top">
+      <div>
+        <h3>Depo-Provera</h3>
+        <div class="tort-card-mdl">MDL 3140 · N.D. Fla.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Long-term injectable DMPA contraceptive linked to intracranial meningioma. First bellwether December 2026 before Judge Rodgers.</p>
+    <div class="tort-card-meta"><span>Plaintiffs: <strong>3,490</strong></span><span class="tort-card-arrow">View →</span></div>
+  </a>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Social Media Harm (Adolescent)</h3>
+        <div class="tort-card-mdl">MDL 3047 · N.D. Cal.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Meta, TikTok, Snap, YouTube platform design-defect claims for adolescent mental health harm. Judge Gonzalez Rogers.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Paraquat</h3>
+        <div class="tort-card-mdl">MDL 3004 · S.D. Ill.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Herbicide exposure linked to Parkinson's disease. Syngenta &amp; Chevron co-defendants. Bellwether track reset.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Hair Relaxer</h3>
+        <div class="tort-card-mdl">MDL 3060 · N.D. Ill.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Chemical hair relaxers and uterine / endometrial / ovarian cancer. L'Oréal, Revlon, Softsheen-Carson.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Ozempic &amp; GLP-1 Agonists</h3>
+        <div class="tort-card-mdl">MDL 3094 · E.D. Pa.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Gastroparesis, ileus, NAION vision loss claims against Novo Nordisk and Eli Lilly. Bellwether selection underway.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Roundup (Glyphosate)</h3>
+        <div class="tort-card-mdl">MDL 2741 · N.D. Cal.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Non-Hodgkin lymphoma claims against Monsanto/Bayer. Ongoing rolling settlements and state-court verdicts.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>AFFF / Firefighting Foam</h3>
+        <div class="tort-card-mdl">MDL 2873 · D.S.C.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">PFAS in aqueous film-forming foam — water-provider and personal-injury tracks. 3M, DuPont, Chemguard.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Talc / Baby Powder</h3>
+        <div class="tort-card-mdl">MDL 2738 · D.N.J.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Johnson &amp; Johnson talc and ovarian cancer / mesothelioma. LTL bankruptcy strategy dismissed; trial pipeline resumed.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Hernia Mesh (Bard)</h3>
+        <div class="tort-card-mdl">MDL 2846 · S.D. Ohio</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">C.R. Bard polypropylene hernia mesh defect claims. Bellwether trial series ongoing.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Atrium C-Qur Mesh</h3>
+        <div class="tort-card-mdl">MDL 2753 · D.N.H.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Atrium Medical C-Qur hernia mesh with Omega-3 coating. Adhesion, infection, and chronic pain claims.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>CPAP / Philips Respironics</h3>
+        <div class="tort-card-mdl">MDL 3014 · W.D. Pa.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Polyurethane foam degradation in recalled CPAP/BiPAP devices. Personal-injury track active post-economic settlement.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Valsartan NDMA</h3>
+        <div class="tort-card-mdl">MDL 2875 · D.N.J.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">NDMA/NDEA contamination in generic valsartan and cancer claims against ZHP, Teva, Torrent, and others.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Elmiron (IC drug)</h3>
+        <div class="tort-card-mdl">MDL 2973 · D.N.J.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Pentosan polysulfate sodium and pigmentary maculopathy / vision loss. Janssen defendant.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Exactech Knee &amp; Hip Implants</h3>
+        <div class="tort-card-mdl">MDL 3044 · E.D.N.Y.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Defective polyethylene inserts in Optetrak, Truliant, Vantage, and Novation implants. Revision-surgery claims.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Paragard IUD</h3>
+        <div class="tort-card-mdl">MDL 2974 · N.D. Ga.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Breakage of copper IUD upon removal, requiring surgical retrieval. Teva / CooperSurgical defendants.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>JUUL E-Cigarette</h3>
+        <div class="tort-card-mdl">MDL 2913 · N.D. Cal.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Nicotine addiction and youth marketing claims. Personal-injury and school-district tracks active.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>NEC Infant Formula</h3>
+        <div class="tort-card-mdl">MDL 3026 · N.D. Ill.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Necrotizing enterocolitis in premature infants linked to cow-milk-based formula. Abbott (Similac), Mead Johnson (Enfamil).</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Suboxone (Tooth Decay)</h3>
+        <div class="tort-card-mdl">MDL 3092 · N.D. Ohio</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Sublingual buprenorphine/naloxone film and severe dental decay. Indivior defendant.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Tepezza (Hearing Loss)</h3>
+        <div class="tort-card-mdl">MDL 3079 · N.D. Ill.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Teprotumumab infusion for thyroid eye disease linked to permanent hearing loss / tinnitus. Horizon Therapeutics.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>IVC Filter (Cook)</h3>
+        <div class="tort-card-mdl">MDL 2570 · S.D. Ind.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Cook Celect and Günther Tulip IVC filter migration, fracture, and perforation claims.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Uber / Lyft Sexual Assault</h3>
+        <div class="tort-card-mdl">MDL 3084 · N.D. Cal.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Rideshare driver sexual-assault claims. Consolidated against Uber Technologies with parallel Lyft proceeding.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Generac Portable Generators</h3>
+        <div class="tort-card-mdl">MDL 3078 · E.D. Wis.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">PowerPact handle defect causing finger amputation injuries. Generac Power Systems defendant.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Camp Lejeune Water Contamination</h3>
+        <div class="tort-card-mdl">E.D.N.C. (statutory)</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Statutory individual actions under the Camp Lejeune Justice Act of 2022. TCE/PCE exposure claims (1953–1987).</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Hyundai / Kia Theft</h3>
+        <div class="tort-card-mdl">MDL 3052 · C.D. Cal.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Vehicles lacking engine immobilizers vulnerable to TikTok-style theft. Economic-loss class claims.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Social Casino Apps</h3>
+        <div class="tort-card-mdl">MDL 3001 · W.D. Wash.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Unlawful-gambling claims against operators of virtual casino apps (DoubleDown, Big Fish, Huuuge).</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>3M Bair Hugger</h3>
+        <div class="tort-card-mdl">MDL 2666 · D. Minn.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Forced-air surgical warming blanket and deep joint infection during orthopedic surgery.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Smith &amp; Nephew BHR Hip</h3>
+        <div class="tort-card-mdl">MDL 2775 · D. Md.</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Birmingham Hip Resurfacing and R3 acetabular system — metallosis and revision surgery claims.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Kratom Wrongful Death</h3>
+        <div class="tort-card-mdl">State consolidations</div>
+      </div>
+      <span class="idx-badge idx-b-active">● Active</span>
+    </div>
+    <p class="tort-card-blurb">Mitragyna speciosa products and overdose / liver failure deaths. State-court coordinated proceedings.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Zantac (Ranitidine)</h3>
+        <div class="tort-card-mdl">MDL 2924 · S.D. Fla.</div>
+      </div>
+      <span class="idx-badge idx-b-monitor">● Monitor</span>
+    </div>
+    <p class="tort-card-blurb">NDMA contamination and cancer. MDL dismissed on Daubert 2022; state-court inventory remains active.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Tylenol / Acetaminophen</h3>
+        <div class="tort-card-mdl">MDL 3043 · S.D.N.Y.</div>
+      </div>
+      <span class="idx-badge idx-b-monitor">● Monitor</span>
+    </div>
+    <p class="tort-card-blurb">Prenatal acetaminophen and autism / ADHD. MDL Daubert ruling excluded experts — 2nd Circuit appeal pending.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Taxotere (Hair Loss)</h3>
+        <div class="tort-card-mdl">MDL 2740 · E.D. La.</div>
+      </div>
+      <span class="idx-badge idx-b-monitor">● Monitor</span>
+    </div>
+    <p class="tort-card-blurb">Permanent alopecia claims against Sanofi. Preemption and case-specific rulings narrowing inventory.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Proton Pump Inhibitors</h3>
+        <div class="tort-card-mdl">MDL 2789 · D.N.J.</div>
+      </div>
+      <span class="idx-badge idx-b-monitor">● Monitor</span>
+    </div>
+    <p class="tort-card-blurb">Nexium, Prilosec, Prevacid and chronic kidney disease. Partial Daubert exclusions in 2023.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Onglyza (Saxagliptin)</h3>
+        <div class="tort-card-mdl">MDL 2809 · E.D. Ky.</div>
+      </div>
+      <span class="idx-badge idx-b-monitor">● Monitor</span>
+    </div>
+    <p class="tort-card-blurb">DPP-4 inhibitor and heart failure. Daubert ruling excluded plaintiffs' expert; 6th Circuit affirmed.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Belviq (Lorcaserin)</h3>
+        <div class="tort-card-mdl">MDL 2966 · S.D.N.Y.</div>
+      </div>
+      <span class="idx-badge idx-b-monitor">● Monitor</span>
+    </div>
+    <p class="tort-card-blurb">Weight-loss drug withdrawn from market 2020. Cancer claims against Eisai and Arena Pharmaceuticals.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Fisher-Price Rock 'n Play</h3>
+        <div class="tort-card-mdl">State consolidations</div>
+      </div>
+      <span class="idx-badge idx-b-monitor">● Monitor</span>
+    </div>
+    <p class="tort-card-blurb">Infant sleeper recalled after 30+ deaths. Individual wrongful-death actions in state court.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Singulair (Montelukast)</h3>
+        <div class="tort-card-mdl">JPML motion pending</div>
+      </div>
+      <span class="idx-badge idx-b-monitor">● Monitor</span>
+    </div>
+    <p class="tort-card-blurb">Asthma medication and neuropsychiatric injury / suicide. 2020 FDA boxed warning. Early state-court filings.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Abbott Hair Dye / PPD</h3>
+        <div class="tort-card-mdl">Pre-MDL state track</div>
+      </div>
+      <span class="idx-badge idx-b-monitor">● Monitor</span>
+    </div>
+    <p class="tort-card-blurb">Para-phenylenediamine hair dye reactions and severe allergic contact dermatitis. Early litigation.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Nexplanon Migration</h3>
+        <div class="tort-card-mdl">Pre-MDL coordination</div>
+      </div>
+      <span class="idx-badge idx-b-monitor">● Monitor</span>
+    </div>
+    <p class="tort-card-blurb">Subdermal contraceptive implant migration to pulmonary vasculature. Organon defendant. Early filings only.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Airbnb Hidden Cameras</h3>
+        <div class="tort-card-mdl">MDL 3116 · N.D. Cal.</div>
+      </div>
+      <span class="idx-badge idx-b-newmdl">● New MDL</span>
+    </div>
+    <p class="tort-card-blurb">Recently consolidated — hidden recording devices in short-term rentals. Privacy and premises-liability claims.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Lucky Charms GI Illness</h3>
+        <div class="tort-card-mdl">MDL 3118 · D. Minn.</div>
+      </div>
+      <span class="idx-badge idx-b-newmdl">● New MDL</span>
+    </div>
+    <p class="tort-card-blurb">Recently consolidated — General Mills cereal linked to self-reported GI illness cluster. Early discovery.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>PFAS Food Packaging</h3>
+        <div class="tort-card-mdl">MDL 3122 · D. Mass.</div>
+      </div>
+      <span class="idx-badge idx-b-newmdl">● New MDL</span>
+    </div>
+    <p class="tort-card-blurb">Recently consolidated — PFAS-treated food wrappers and bioaccumulation claims. Multiple QSR defendants.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Smart Ring Data Privacy</h3>
+        <div class="tort-card-mdl">MDL 3128 · N.D. Cal.</div>
+      </div>
+      <span class="idx-badge idx-b-newmdl">● New MDL</span>
+    </div>
+    <p class="tort-card-blurb">Recently consolidated — biometric and health-data collection without consent. Multi-device defendant pool.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Weight-Loss Compounding Pharmacies</h3>
+        <div class="tort-card-mdl">JPML hearing scheduled</div>
+      </div>
+      <span class="idx-badge idx-b-pending">● Pending JPML</span>
+    </div>
+    <p class="tort-card-blurb">Compounded semaglutide / tirzepatide from compounding pharmacies. JPML hearing calendared this cycle.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Lawn-Mower Battery Fires</h3>
+        <div class="tort-card-mdl">JPML motion pending</div>
+      </div>
+      <span class="idx-badge idx-b-pending">● Pending JPML</span>
+    </div>
+    <p class="tort-card-blurb">Lithium-ion battery thermal-runaway fires in residential electric mowers. Multi-manufacturer pool.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>3M Combat Arms Earplug</h3>
+        <div class="tort-card-mdl">MDL 2885 · N.D. Fla.</div>
+      </div>
+      <span class="idx-badge idx-b-quiet">● Quiet</span>
+    </div>
+    <p class="tort-card-blurb">Settled 2023 — $6.01B global resolution. Judge Rodgers now presiding over Depo-Provera MDL 3140.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Bard IVC Filter</h3>
+        <div class="tort-card-mdl">MDL 2641 · D. Ariz.</div>
+      </div>
+      <span class="idx-badge idx-b-quiet">● Quiet</span>
+    </div>
+    <p class="tort-card-blurb">Bellwether track closed. Remaining inventory resolved through confidential settlements. Historical reference.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+  <div class="tort-card coming-soon">
+    <div class="coming-soon-ribbon">Coming soon</div>
+    <div class="tort-card-top">
+      <div>
+        <h3>Zostavax</h3>
+        <div class="tort-card-mdl">MDL 2848 · E.D. Pa.</div>
+      </div>
+      <span class="idx-badge idx-b-quiet">● Quiet</span>
+    </div>
+    <p class="tort-card-blurb">Daubert exclusions 2021 ended general-causation track. Archival intelligence retained for comparable drug MDLs.</p>
+    <div class="tort-card-meta"><span>Full page coming</span><span class="tort-card-arrow">Soon</span></div>
+  </div>
+
+</div>
+<p style="text-align:center; font-size:13px; color:var(--text-muted); margin-top:8px;">Depo-Provera is live as the flagship template. Remaining 46 tort pages roll out across Phase 5 — each inherits the same 29-section intelligence architecture.</p>
+</div>
+</main>
+
+<footer class="tp-footer">
+  <div class="container">
+    <div class="tp-footer-grid">
+      <div class="tp-footer-brand">
+        <a href="/" class="mt-brand">
+          <svg class="mt-brand-logo" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="0.5" y="0.5" width="45" height="45" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+            <text x="23" y="22" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="16" fill="#0F1C4F">MT</text>
+            <text x="23" y="38" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="13" fill="#C4A240">24/7</text>
+          </svg>
+          <span class="mt-brand-name">Mass Torts<span class="accent">&nbsp;24/7</span></span>
+        </a>
+        <p>The mass tort decision engine for plaintiff attorneys. Real-time MDL filings, AI case scoring, and settlement intelligence — updated 24/7.</p>
+        <p style="margin-top:10px;font-size:12px;">Powered by LeadGen247 LLC. <a href="https://leadgen247.com" style="color:var(--gold);">LeadGen247.com</a></p>
+      </div>
+      <div class="tp-footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="/#platform">Intelligence</a></li>
+          <li><a href="/torts">Tort Library</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/daily-docket">Daily Docket</a></li>
+          <li><a href="/ask-mt247">Ask MT247</a></li>
+        </ul>
+      </div>
+      <div class="tp-footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/support">Support</a></li>
+          <li><a href="/api">API Docs</a></li>
+          <li><a href="mailto:info@masstorts247.com">Contact</a></li>
+        </ul>
+      </div>
+      <div class="tp-footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/disclaimer">Disclaimer</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/cookies">Cookie Policy</a></li>
+          <li><a href="/acceptable-use">Acceptable Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tp-footer-bottom">
+      © 2026 MassTorts247. All rights reserved. MassTorts247 · LeadGen247 Network · [Physical mailing address — required by CAN-SPAM]
+      <p class="tp-footer-disclaimer">MassTorts247 provides mass tort intelligence and is not a law firm. Nothing on this site is legal advice. Data displayed is aggregated from public sources (PACER, openFDA, PubMed, SEC EDGAR, JPML) and is subject to change pending verification. Attorney review is required for all intake and SOL decisions.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
