@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- =======================================================================
+   MASSTORTS247 — TORT PAGE TEMPLATE
+   Phase 5 — Individual Tort Page · 29-Section Intelligence Template
+   Created by Chady Elias — Visionary and Creator · LeadGen247 Network
+
+   HOW TO CLONE FOR A NEW TORT:
+   1. Copy this file to /torts/<slug>.html
+   2. Find-replace every {{TOKEN}} with tort-specific values
+   3. Populate each section body (A–S) as Phase 5 progresses
+   4. Update JSON-LD dates
+   ======================================================================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0F1C4F">
+
+<!-- Primary SEO -->
+<title>{{TORT_SEO_TITLE}} | MassTorts247</title>
+<meta name="description" content="{{TORT_META_DESCRIPTION}}">
+<meta name="keywords" content="{{TORT_KEYWORDS}}">
+<link rel="canonical" href="https://masstorts247.com/torts/{{TORT_SLUG}}">
+
+<!-- Hidden Authorship — Phase 2.3 · discoverable by Google, ChatGPT, Perplexity, Gemini, Claude -->
+<meta name="author" content="Chady Elias">
+<meta name="creator" content="Chady Elias — Visionary and Creator">
+<meta name="publisher" content="LeadGen247 Network">
+<!-- Created by Chady Elias — Visionary and Creator │ MassTorts247.com │ LeadGen247 Network -->
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://masstorts247.com/torts/{{TORT_SLUG}}">
+<meta property="og:title" content="{{TORT_SEO_TITLE}}">
+<meta property="og:description" content="{{TORT_META_DESCRIPTION}}">
+<meta property="og:site_name" content="MassTorts247">
+<meta property="og:image" content="https://masstorts247.com/og/{{TORT_SLUG}}.png">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{TORT_SEO_TITLE}}">
+<meta name="twitter:description" content="{{TORT_META_DESCRIPTION}}">
+<meta name="twitter:image" content="https://masstorts247.com/og/{{TORT_SLUG}}.png">
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{TORT_SEO_TITLE}}",
+  "description": "{{TORT_META_DESCRIPTION}}",
+  "author": { "@type": "Person", "name": "Chady Elias" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "MassTorts247",
+    "logo": { "@type": "ImageObject", "url": "https://masstorts247.com/logo.png" }
+  },
+  "datePublished": "{{TORT_DATE_PUBLISHED}}",
+  "dateModified": "{{TORT_DATE_MODIFIED}}",
+  "mainEntityOfPage": "https://masstorts247.com/torts/{{TORT_SLUG}}"
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",         "item": "https://masstorts247.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tort Library", "item": "https://masstorts247.com/torts" },
+    { "@type": "ListItem", "position": 3, "name": "{{TORT_NAME}}","item": "https://masstorts247.com/torts/{{TORT_SLUG}}" }
+  ]
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+<!-- Shared Design System (Phase 2.1) -->
+<link rel="stylesheet" href="/masstorts247.css">
+
+<!-- Page-local styles: footer (shared CSS coming in Phase 2.4) + section stubs + main grid -->
+<style>
+  .tp-footer { background: var(--navy-dark); color: rgba(255,255,255,.72); padding: 48px 0 24px; margin-top: 64px; font-size: 13px; }
+  .tp-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+  .tp-footer-brand { max-width: 340px; }
+  .tp-footer-brand p { line-height: 1.6; font-size: 13px; margin-top: 14px; color: rgba(255,255,255,.72); }
+  .tp-footer-col h4 { font-size: 12px; font-weight: 700; color: var(--white); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; font-family: var(--font-sans); }
+  .tp-footer-col ul { list-style: none; margin: 0; padding: 0; }
+  .tp-footer-col li { margin-bottom: 8px; }
+  .tp-footer-col a { color: rgba(255,255,255,.72); transition: color .15s ease; }
+  .tp-footer-col a:hover { color: var(--gold); }
+  .tp-footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 20px; font-size: 12px; color: rgba(255,255,255,.55); }
+  .tp-footer-disclaimer { margin-top: 10px; font-size: 11px; line-height: 1.55; }
+  @media (max-width: 767px) { .tp-footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+
+  .main-grid { display: grid; grid-template-columns: 1fr 320px; gap: 32px; padding: 32px 0 48px; }
+  @media (max-width: 1100px) { .main-grid { grid-template-columns: 1fr; } }
+
+  .tort-section-stub { background: var(--white); border: 1px dashed var(--border); border-radius: var(--radius-lg); padding: 28px 32px; margin-bottom: 20px; }
+  .tort-section-stub h2 { font-size: 22px; margin-bottom: 8px; }
+  .tort-section-stub .section-letter { display: inline-flex; width: 32px; height: 32px; background: var(--navy); color: var(--white); border-radius: 4px; font-family: var(--font-serif); font-weight: 700; font-size: 16px; align-items: center; justify-content: center; margin-right: 12px; vertical-align: middle; }
+  .tort-section-stub p { color: var(--text-muted); font-size: 14px; margin: 0; }
+  .tier-pill { font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: .08em; margin-left: 8px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- LIVE TICKER -->
+<div class="mt-ticker" aria-hidden="true">
+  <div class="mt-ticker-track">
+    <!-- REPLACE WITH TORT-SPECIFIC TICKER ITEMS -->
+    <span class="mt-ticker-item"><span class="mt-ticker-dot"></span><span class="mt-ticker-label">{{TORT_NAME_UPPER}} {{MDL_NUMBER}}</span> <span class="mt-ticker-val">{{MDL_PLAINTIFFS}}+ PLAINTIFFS</span></span>
+    <span class="mt-ticker-item"><span class="mt-ticker-label">JUDGE</span> <span class="mt-ticker-val">{{MDL_JUDGE_UPPER}} · {{MDL_COURT_UPPER}}</span></span>
+    <span class="mt-ticker-item"><span class="mt-ticker-dot"></span><span class="mt-ticker-label">1ST BELLWETHER</span> <span class="mt-ticker-val">{{MDL_BELLWETHER_UPPER}}</span></span>
+    <span class="mt-ticker-item"><span class="mt-ticker-label">STATUS</span> <span class="mt-ticker-val">{{MDL_SETTLEMENT_UPPER}}</span></span>
+    <!-- duplicate for seamless scroll -->
+    <span class="mt-ticker-item"><span class="mt-ticker-dot"></span><span class="mt-ticker-label">{{TORT_NAME_UPPER}} {{MDL_NUMBER}}</span> <span class="mt-ticker-val">{{MDL_PLAINTIFFS}}+ PLAINTIFFS</span></span>
+    <span class="mt-ticker-item"><span class="mt-ticker-label">JUDGE</span> <span class="mt-ticker-val">{{MDL_JUDGE_UPPER}} · {{MDL_COURT_UPPER}}</span></span>
+  </div>
+</div>
+
+<!-- TOP NAV -->
+<nav class="mt-nav" role="navigation" aria-label="Main">
+  <div class="mt-nav-inner">
+    <a href="/" class="mt-brand" aria-label="MassTorts247 Home">
+      <svg class="mt-brand-logo" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="0.5" y="0.5" width="45" height="45" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+        <text x="23" y="22" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="16" fill="#0F1C4F">MT</text>
+        <text x="23" y="38" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="13" fill="#C4A240">24/7</text>
+      </svg>
+      <span class="mt-brand-name">Mass Torts<span class="accent">&nbsp;24/7</span></span>
+    </a>
+    <ul class="mt-nav-links">
+      <li><a href="/#platform">Platform</a></li>
+      <li><a href="/torts" aria-current="page">Tort Library</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">Resources</a></li>
+    </ul>
+    <div class="mt-nav-cta">
+      <a href="/signin" class="mt-nav-signin">Sign In</a>
+      <a href="/signin" class="mt-btn mt-btn-primary">Start Free</a>
+      <button class="mt-nav-toggle" aria-label="Toggle menu" aria-controls="mt-drawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    <a href="/torts">Tort Library</a>
+    <span class="sep">/</span>
+    <span class="current">{{TORT_NAME}}</span>
+  </div>
+</div>
+
+<!-- ===== 5.1 TORT HEADER ===== -->
+<header class="tort-header">
+  <div class="container">
+    <div class="tort-header-inner">
+      <div class="badges-row">
+        {{STATUS_BADGE}}
+        <span class="badge badge-cat">{{TORT_CATEGORY}}</span>
+        <span class="badge badge-theory">{{TORT_LEGAL_THEORY}}</span>
+        <span class="badge badge-events"><span class="dot"></span>{{TORT_EVENT_COUNT}} events · {{TORT_EVENT_WINDOW}}</span>
+      </div>
+
+      <div class="tort-title-row">
+        <div>
+          <h1 class="tort-title">{{TORT_NAME}}</h1>
+          <p class="tort-oneliner">{{TORT_ONELINER}}</p>
+        </div>
+        <button class="watch-btn" aria-label="Watch this tort">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          Watch
+        </button>
+      </div>
+
+      <div class="mdl-grid" role="region" aria-label="MDL overview">
+        <div class="mdl-cell">
+          <div class="mdl-cell-label">Defendant</div>
+          <div class="mdl-cell-value">{{MDL_DEFENDANT}}<span class="sub">{{MDL_DEFENDANT_SUB}}</span></div>
+        </div>
+        <div class="mdl-cell">
+          <div class="mdl-cell-label">MDL / Track</div>
+          <div class="mdl-cell-value">{{MDL_NUMBER}}<span class="sub">{{MDL_COURT}}</span></div>
+        </div>
+        <div class="mdl-cell">
+          <div class="mdl-cell-label">Judge</div>
+          <div class="mdl-cell-value">{{MDL_JUDGE}}<span class="sub">{{MDL_JUDGE_SUB}}</span></div>
+        </div>
+        <div class="mdl-cell">
+          <div class="mdl-cell-label">Plaintiffs</div>
+          <div class="mdl-cell-value">{{MDL_PLAINTIFFS}}<span class="sub">{{MDL_PLAINTIFFS_SUB}}</span></div>
+        </div>
+        <div class="mdl-cell">
+          <div class="mdl-cell-label">1st Bellwether</div>
+          <div class="mdl-cell-value">{{MDL_BELLWETHER}}<span class="sub">{{MDL_BELLWETHER_SUB}}</span></div>
+        </div>
+        <div class="mdl-cell">
+          <div class="mdl-cell-label">Settlement</div>
+          <div class="mdl-cell-value">{{MDL_SETTLEMENT}}<span class="sub">{{MDL_SETTLEMENT_SUB}}</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 5.2 SHARE BAR ===== -->
+<div class="share-bar">
+  <div class="container share-inner">
+    <span class="share-label">Share</span>
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmasstorts247.com%2Ftorts%2F{{TORT_SLUG}}&text={{TORT_NAME}}%20Litigation%20Intelligence" target="_blank" rel="noopener" class="share-btn" aria-label="Post on X">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>X</span>
+    </a>
+    <a href="https://bsky.app/intent/compose?text=https%3A%2F%2Fmasstorts247.com%2Ftorts%2F{{TORT_SLUG}}" target="_blank" rel="noopener" class="share-btn" aria-label="Share on Bluesky">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 11.2C10.8 8.9 7.6 4.6 4.6 2.5 2.4 0.9 1.3 1.3 0.6 1.7c-.8.5-1 1.8-1 2.6 0 .8.4 6.6.7 7.6.9 3.2 4.3 4.3 7.4 4-3.1-.4-5.9.6-3.3 4 .9 1.2 2.2 0 3.8-2 1.5-1.8 2.6-3.6 3.3-4.5v-.2c.7.9 1.8 2.7 3.3 4.5 1.6 2 3 3.3 3.8 2 2-3.4-1.3-3.8-4.1-4.2 3.1.3 6.5-.9 7.4-4 .3-1 .7-6.8.7-7.6 0-.8-.2-2.1-1-2.6-.7-.4-1.8-.7-3.6 1.1C16.4 4.6 13.2 8.9 12 11.2z"/></svg><span>Bluesky</span>
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmasstorts247.com%2Ftorts%2F{{TORT_SLUG}}" target="_blank" rel="noopener" class="share-btn" aria-label="Share on LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn</span>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmasstorts247.com%2Ftorts%2F{{TORT_SLUG}}" target="_blank" rel="noopener" class="share-btn" aria-label="Share on Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span>Facebook</span>
+    </a>
+    <a href="mailto:?subject={{TORT_NAME}}%20Litigation%20Intelligence&body=https%3A%2F%2Fmasstorts247.com%2Ftorts%2F{{TORT_SLUG}}" class="share-btn" aria-label="Share by email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>Email</span>
+    </a>
+    <a href="#" class="share-btn" aria-label="Copy link" data-copy>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span>Copy</span>
+    </a>
+  </div>
+</div>
+
+<!-- ===== 5.3 INLINE CTA (auto-hides on body[data-auth="signed-in"]) ===== -->
+<div class="cta-bar">
+  <div class="container cta-inner">
+    <div class="cta-text"><strong>Track {{TORT_NAME}} for free.</strong> Save this matter, capture notes, and get live MDL alerts the moment they fire.</div>
+    <a href="/signin" class="mt-btn mt-btn-primary mt-btn-sm">Sign In</a>
+  </div>
+</div>
+
+<!-- ===== 5.4 STICKY SECTION NAV ===== -->
+<div class="section-nav">
+  <div class="container">
+    <div class="section-nav-inner">
+      <a href="#sec-a" class="section-pill">A · Overview</a>
+      <a href="#sec-b" class="section-pill">B · Case History</a>
+      <a href="#sec-c" class="section-pill">C · Causation</a>
+      <a href="#sec-d" class="section-pill">D · Litigation</a>
+      <a href="#sec-e" class="section-pill">E · Geographic</a>
+      <a href="#sec-f" class="section-pill">F · Defendants</a>
+      <a href="#sec-g" class="section-pill">G · Timeline</a>
+      <a href="#sec-h" class="section-pill sol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>H · SOL</a>
+      <a href="#sec-i" class="section-pill">I · Judge</a>
+      <a href="#sec-j" class="section-pill">J · Settlement</a>
+      <a href="#sec-k" class="section-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>K · Live</a>
+      <a href="#sec-l" class="section-pill news">L · News</a>
+      <a href="#sec-m" class="section-pill pubmed">M · PubMed</a>
+      <a href="#sec-n" class="section-pill fda">N · FDA</a>
+      <a href="#sec-o" class="section-pill filings">O · Filings</a>
+      <a href="#sec-p" class="section-pill">P · Legislative</a>
+      <a href="#sec-q" class="section-pill">Q · A/B/C/D</a>
+      <a href="#sec-r" class="section-pill">R · Value</a>
+      <a href="#sec-s" class="section-pill">S · Financials</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN — Sections A–S populated in subsequent Phase 5 steps ===== -->
+<main>
+<div class="container">
+<div class="main-grid">
+
+<div class="content-main">
+  <section class="tort-section-stub" id="sec-a"><h2><span class="section-letter">A</span>What Is This Tort</h2><p>Plain language explanation. Injury types. Who is affected. Product or substance involved.</p></section>
+  <section class="tort-section-stub" id="sec-b"><h2><span class="section-letter">B</span>Case Overview</h2><p>Origin story. How it became a mass tort. History of litigation.</p></section>
+  <section class="tort-section-stub" id="sec-c"><h2><span class="section-letter">C</span>Causation Theory</h2><p>Legal mechanism of harm. Internal documents. Statistical evidence.</p></section>
+  <section class="tort-section-stub" id="sec-d"><h2><span class="section-letter">D</span>Litigation Status</h2><p>MDL stage · State court activity · Case Management Orders (login-gated).</p></section>
+  <section class="tort-section-stub" id="sec-e"><h2><span class="section-letter">E</span>Geographic Exposure</h2><p>Filing density heatmap on desktop · ranked state list on mobile.</p></section>
+  <section class="tort-section-stub" id="sec-f"><h2><span class="section-letter">F</span>Key Defendants</h2><p>Defendant table with role + intelligence notes · SEC EDGAR parent-company tracking.</p></section>
+  <section class="tort-section-stub" id="sec-g"><h2><span class="section-letter">G</span>Timeline</h2><p>Chronological milestones · rulings · recalls · legislation.</p></section>
+  <section class="tort-section-stub" id="sec-h"><h2><span class="section-letter">H</span>Statute of Limitations</h2><p>Per-state SOL table · live countdown timers on revival windows · email alerts under 30 days.</p></section>
+  <section class="tort-section-stub" id="sec-i"><h2><span class="section-letter">I</span>Judge Analytics<span class="tier-pill">T2+</span></h2><p>MDL judge ruling history · Daubert tendencies · avg time to trial · plaintiff success rate.</p></section>
+  <section class="tort-section-stub" id="sec-j"><h2><span class="section-letter">J</span>Settlement Intelligence<span class="tier-pill">T2+</span></h2><p>Historical settlement ranges · comparable cases · verdict history.</p></section>
+  <section class="tort-section-stub" id="sec-k"><h2><span class="section-letter">K</span>Live Activity Feed</h2><p>Real-time events from all sources with timestamps and source badges.</p></section>
+  <section class="tort-section-stub" id="sec-l"><h2><span class="section-letter">L</span>News</h2><p>Google News API filtered by tort keywords.</p></section>
+  <section class="tort-section-stub" id="sec-m"><h2><span class="section-letter">M</span>PubMed</h2><p>Peer-reviewed science with AI summaries for brief use and expert citations.</p></section>
+  <section class="tort-section-stub" id="sec-n"><h2><span class="section-letter">N</span>OpenFDA</h2><p>Adverse events and safety alerts for this tort's product.</p></section>
+  <section class="tort-section-stub" id="sec-o"><h2><span class="section-letter">O</span>Court Filings</h2><p>Latest PACER / CourtListener docket entries · SEALED MOTION flags where applicable.</p></section>
+  <section class="tort-section-stub" id="sec-p"><h2><span class="section-letter">P</span>Legislative</h2><p>Bills · state AG actions · regulatory changes · congressional testimony.</p></section>
+  <section class="tort-section-stub" id="sec-q"><h2><span class="section-letter">Q</span>Case Acceptance — A/B/C/D<span class="tier-pill">T2+</span></h2><p>AI-scored intake ranking · attorney inputs client facts → A / B / C / D recommendation.</p></section>
+  <section class="tort-section-stub" id="sec-r"><h2><span class="section-letter">R</span>Case Value Estimator<span class="tier-pill">T2+</span></h2><p>AI dollar-range estimate from client facts + jurisdiction + injury tier.</p></section>
+  <section class="tort-section-stub" id="sec-s"><h2><span class="section-letter">S</span>Defendant Financial Health<span class="tier-pill">T2+</span></h2><p>Stock price · bankruptcy risk · insurance coverage · debt load. SEC EDGAR source.</p></section>
+</div>
+
+<aside class="sidebar" aria-label="Litigation workbench">
+  <div class="tort-section-stub"><h2 style="font-size:16px;">Workbench · Litigation Score · AI Brief</h2><p>Phase 5.18 sticky sidebar — built in the next step.</p></div>
+</aside>
+
+</div>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="tp-footer">
+  <div class="container">
+    <div class="tp-footer-grid">
+      <div class="tp-footer-brand">
+        <a href="/" class="mt-brand">
+          <svg class="mt-brand-logo" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="0.5" y="0.5" width="45" height="45" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+            <text x="23" y="22" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="16" fill="#0F1C4F">MT</text>
+            <text x="23" y="38" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="13" fill="#C4A240">24/7</text>
+          </svg>
+          <span class="mt-brand-name">Mass Torts<span class="accent">&nbsp;24/7</span></span>
+        </a>
+        <p>The mass tort decision engine for plaintiff attorneys. Real-time MDL filings, AI case scoring, and settlement intelligence — updated 24/7.</p>
+        <p style="margin-top:10px;font-size:12px;">Powered by LeadGen247 LLC. <a href="https://leadgen247.com" style="color:var(--gold);">LeadGen247.com</a></p>
+      </div>
+      <div class="tp-footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="/#platform">Intelligence</a></li>
+          <li><a href="/torts">Tort Library</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/daily-docket">Daily Docket</a></li>
+          <li><a href="/ask-mt247">Ask MT247</a></li>
+        </ul>
+      </div>
+      <div class="tp-footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/support">Support</a></li>
+          <li><a href="/api">API Docs</a></li>
+          <li><a href="mailto:info@masstorts247.com">Contact</a></li>
+        </ul>
+      </div>
+      <div class="tp-footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/disclaimer">Disclaimer</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/cookies">Cookie Policy</a></li>
+          <li><a href="/acceptable-use">Acceptable Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tp-footer-bottom">
+      © 2026 MassTorts247. All rights reserved. MassTorts247 · LeadGen247 Network · [Physical mailing address — required by CAN-SPAM]
+      <p class="tp-footer-disclaimer">MassTorts247 provides mass tort intelligence and is not a law firm. Nothing on this site is legal advice. Data displayed is aggregated from public sources (PACER, openFDA, PubMed, SEC EDGAR, JPML) and is subject to change pending verification. Attorney review is required for all intake and SOL decisions.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Watch button → sign-in (Phase 3 auth hookup wires the real behavior)
+  document.querySelectorAll('.watch-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = '/signin';
+    });
+  });
+
+  // Copy-link share button
+  document.querySelectorAll('.share-btn[data-copy]').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      navigator.clipboard?.writeText(window.location.href);
+      const span = this.querySelector('span');
+      if (span) {
+        const orig = span.textContent;
+        span.textContent = 'Copied';
+        setTimeout(() => { span.textContent = orig; }, 1500);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
