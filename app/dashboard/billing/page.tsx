@@ -42,7 +42,27 @@ function CheckoutStatusBanner() {
 
 function BillingContent() {
   const [loadingKey, setLoadingKey] = useState<PriceKey | null>(null);
+  const [portalLoading, setPortalLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  async function openPortal() {
+    setPortalLoading(true);
+    setError(null);
+    try {
+      const res = await fetch('/api/stripe/portal', { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Unable to open billing portal');
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('No portal URL returned');
+      }
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Unknown error';
+      setError(message);
+      setPortalLoading(false);
+    }
+  }
 
   async function startCheckout(priceKey: PriceKey) {
     setLoadingKey(priceKey);
@@ -112,8 +132,31 @@ function BillingContent() {
         ))}
       </div>
 
+      <div style={{ marginTop: 32, paddingTop: 24, borderTop: '1px solid #D6D8E7' }}>
+        <h2 style={{ fontFamily: 'Lora, Georgia, serif', fontSize: 20, margin: '0 0 8px' }}>Already subscribed?</h2>
+        <p style={{ fontSize: 14, color: '#4a5578', margin: '0 0 12px' }}>
+          Update your payment method, change plans, or cancel your subscription.
+        </p>
+        <button
+          onClick={openPortal}
+          disabled={portalLoading}
+          style={{
+            padding: '10px 18px',
+            background: '#fff',
+            color: '#0F1C4F',
+            border: '1px solid #0F1C4F',
+            borderRadius: 6,
+            fontSize: 14,
+            fontWeight: 600,
+            cursor: portalLoading ? 'wait' : 'pointer',
+          }}
+        >
+          {portalLoading ? 'Opening…' : 'Manage subscription'}
+        </button>
+      </div>
+
       <p style={{ fontSize: 12, color: '#6b7394', marginTop: 32 }}>
-        Payments are processed securely by Stripe. You can cancel anytime from your billing portal.
+        Payments are processed securely by Stripe.
       </p>
     </>
   );
