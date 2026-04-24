@@ -1221,7 +1221,30 @@ section { padding: 80px 0; }
 @media (max-width: 720px) {
   .nav-links { display: none; }
   .nav-signin { display: none; }
-  .mobile-signin-cta { display: flex; }
+  .mobile-only-signin { display: list-item; }
+  .nav-links.open .mobile-signin-cta-inline {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 12px 20px !important;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-top: 8px;
+    width: 100%;
+    border-bottom: none !important;
+  }
+  .nav-links.open .mobile-signin-cta-inline:hover {
+    background: var(--gold-bright);
+    color: var(--navy) !important;
+  }
+}
+
+@media (min-width: 721px) {
+  .mobile-only-signin { display: none; }
   .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
   .nav-links.open {
     display: flex;
@@ -1375,6 +1398,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       <li><a href="#torts">Tort Library</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">Resources</a></li>
+      <li class="mobile-only-signin"><a href="/signin">Sign In</a></li>
+      <li class="mobile-only-signin"><a href="/signin" class="mobile-signin-cta-inline">Start Free</a></li>
     </ul>
     <div class="nav-cta">
       <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
