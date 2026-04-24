@@ -1,6 +1,3 @@
-
-Copy
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
@@ -14,5 +11,5 @@ const nextConfig = {
     ];
   },
 };
- 
+
 module.exports = nextConfig;
