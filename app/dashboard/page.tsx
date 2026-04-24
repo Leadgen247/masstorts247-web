@@ -21,12 +21,12 @@ export default async function DashboardPage() {
             </svg>
             <span className="app-brand-name">Mass Torts<span className="accent">&nbsp;24/7</span></span>
           </Link>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13 }}>
+          <div className="app-nav-user">
+            <span className="app-nav-email">
               {user.emailAddresses[0]?.emailAddress}
             </span>
             <UserButton afterSignOutUrl="/" />
-          </div>
+          </div> 
         </div>
       </nav>
 
