@@ -355,9 +355,33 @@
 
 <script>
   document.querySelectorAll('.watch-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
+    btn.addEventListener('click', async function(e) {
       e.preventDefault();
-      window.location.href = '/dashboard';
+      if (btn.dataset.busy === '1') return;
+      btn.dataset.busy = '1';
+      const original = btn.innerHTML;
+      btn.innerHTML = '<span style="opacity:.85;">Adding…</span>';
+      try {
+        const res = await fetch('/api/watchlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            slug: 'depo-provera',
+            name: 'Depo-Provera',
+            mdl: 'MDL 3140 · N.D. Fla.'
+          })
+        });
+        if (res.status === 401) {
+          window.location.href = '/signin?redirect_url=' + encodeURIComponent(window.location.pathname);
+          return;
+        }
+        window.location.href = '/dashboard/watchlist';
+      } catch (err) {
+        console.error('Watchlist error:', err);
+        btn.innerHTML = original;
+        btn.dataset.busy = '0';
+        alert('Could not add to watchlist. Please try again.');
+      }
     });
   });
   document.querySelectorAll('.share-btn[data-copy]').forEach(btn => {
