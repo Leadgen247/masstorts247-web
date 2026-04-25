@@ -686,7 +686,8 @@ table.t tr:nth-child(even) td { background: var(--body-bg-soft); }
 .feed-time {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--text-light);
+  color: #000000;
+  font-weight: 700;
   flex-shrink: 0;
   width: 80px;
   padding-top: 2px;
@@ -719,7 +720,7 @@ table.t tr:nth-child(even) td { background: var(--body-bg-soft); }
   margin-bottom: 14px;
   background: var(--body-bg-soft);
 }
-.paper-meta { font-size: 11px; color: var(--text-light); font-family: var(--font-mono); letter-spacing: 0.04em; margin-bottom: 4px; text-transform: uppercase; }
+.paper-meta { font-size: 11px; color: #000000; font-weight: 700; font-family: var(--font-mono); letter-spacing: 0.04em; margin-bottom: 4px; text-transform: uppercase; }
 .paper-title { font-family: var(--font-serif); font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.35; margin-bottom: 4px; }
 .paper-authors { font-size: 13px; color: var(--text-muted); font-style: italic; margin-bottom: 10px; }
 .paper-summary { font-size: 13px; line-height: 1.6; color: var(--text); margin-bottom: 8px; }
@@ -744,11 +745,11 @@ table.t tr:nth-child(even) td { background: var(--body-bg-soft); }
 /* Geographic - ranked state list */
 .geo-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; margin: 12px 0; }
 .geo-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; padding: 8px 12px; background: var(--body-bg-soft); border-radius: 3px; }
-.geo-rank { color: var(--text-light); font-family: var(--font-mono); font-size: 11px; margin-right: 8px; }
+.geo-rank { color: #000000; font-family: var(--font-mono); font-size: 11px; font-weight: 700; margin-right: 8px; }
 .geo-state { font-weight: 600; color: var(--text); }
 .geo-bar { flex: 1; height: 4px; background: var(--border); margin: 0 12px; border-radius: 2px; overflow: hidden; }
 .geo-bar-fill { height: 100%; background: var(--gold); }
-.geo-count { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+.geo-count { font-family: var(--font-mono); font-size: 11px; color: #000000; font-weight: 700; }
 
 /* News items */
 .news-item { padding: 12px 0; border-bottom: 1px solid var(--border-soft); display: flex; justify-content: space-between; gap: 20px; }
@@ -756,7 +757,7 @@ table.t tr:nth-child(even) td { background: var(--body-bg-soft); }
 .news-title { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; }
 .news-title a { color: var(--text); }
 .news-title a:hover { color: var(--navy); text-decoration: underline; }
-.news-meta { font-size: 11px; color: var(--text-light); font-family: var(--font-mono); white-space: nowrap; flex-shrink: 0; }
+.news-meta { font-size: 11px; color: #000000; font-weight: 700; font-family: var(--font-mono); white-space: nowrap; flex-shrink: 0; }
 
 /* Court filings */
 .filing {
@@ -771,9 +772,9 @@ table.t tr:nth-child(even) td { background: var(--body-bg-soft); }
   gap: 12px;
   align-items: center;
 }
-.filing-date { color: var(--text-light); }
-.filing-desc { color: var(--text); }
-.filing-party { color: var(--text-muted); text-align: right; }
+.filing-date { color: #000000; font-weight: 700; }
+.filing-desc { color: #000000; font-weight: 600; }
+.filing-party { color: #000000; font-weight: 700; text-align: right; }
 .sealed { color: var(--alert); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
 
 /* =================== SIDEBAR =================== */
