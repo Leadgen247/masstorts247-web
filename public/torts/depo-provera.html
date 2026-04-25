@@ -354,34 +354,50 @@
 </footer>
 
 <script>
-  document.querySelectorAll('.watch-btn').forEach(btn => {
+ document.querySelectorAll('.watch-btn').forEach(btn => {
     btn.addEventListener('click', async function(e) {
       e.preventDefault();
       if (btn.dataset.busy === '1') return;
       btn.dataset.busy = '1';
       const original = btn.innerHTML;
       btn.innerHTML = '<span style="opacity:.85;">Adding…</span>';
+
+      let res, data;
       try {
-        const res = await fetch('/api/watchlist', {
+        res = await fetch('/api/watchlist', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
           body: JSON.stringify({
             slug: 'depo-provera',
             name: 'Depo-Provera',
             mdl: 'MDL 3140 · N.D. Fla.'
           })
         });
-        if (res.status === 401) {
-          window.location.href = '/signin?redirect_url=' + encodeURIComponent(window.location.pathname);
-          return;
-        }
-        window.location.href = '/dashboard/watchlist';
+        data = await res.json().catch(() => ({}));
+        console.log('[watchlist] status:', res.status, 'data:', data);
       } catch (err) {
-        console.error('Watchlist error:', err);
+        console.error('[watchlist] network error:', err);
+        alert('Network error: ' + err.message);
         btn.innerHTML = original;
         btn.dataset.busy = '0';
-        alert('Could not add to watchlist. Please try again.');
+        return;
       }
+
+      if (res.status === 401) {
+        window.location.href = '/signin?redirect_url=' + encodeURIComponent(window.location.pathname);
+        return;
+      }
+      if (!res.ok) {
+        alert('API error ' + res.status + ': ' + (data.error || 'unknown'));
+        btn.innerHTML = original;
+        btn.dataset.busy = '0';
+        return;
+      }
+
+      // Success — show count and then redirect
+      btn.innerHTML = '<span>✓ Watching (' + (data.count || '?') + ')</span>';
+      setTimeout(() => { window.location.href = '/dashboard/watchlist'; }, 600);
     });
   });
   document.querySelectorAll('.share-btn[data-copy]').forEach(btn => {
