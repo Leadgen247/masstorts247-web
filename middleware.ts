@@ -19,6 +19,8 @@ export const config = {
     '/dashboard',
     '/api/user/:path*',
     '/api/stripe/:path*',
+    '/api/watchlist',
+    '/api/watchlist/:path*',
     '/api/webhooks/:path*',
     '/signin/:path*',
     '/sign-up/:path*',
